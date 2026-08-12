@@ -533,6 +533,28 @@ a { text-decoration: none; color: var(--gc-primary); }
   .lead-modal-form { padding: 40px 22px 26px; }
 }
 
+/* ============ 13c. ANIMATED ICONS (subtle, professional) ============ */
+@keyframes gc-beat { 0%,100% { transform: scale(1); } 22% { transform: scale(1.18); } 40% { transform: scale(1); } }
+@keyframes gc-float-y { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+@keyframes gc-float-x { 0%,100% { transform: translateX(0); } 50% { transform: translateX(4px); } }
+@keyframes gc-swing { 0%,100% { transform: rotate(0deg); } 50% { transform: rotate(8deg); } }
+
+/* Brand logo: gentle medical heartbeat */
+.brand-mark i { animation: gc-beat 1.9s ease-in-out infinite; transform-origin: center; }
+/* Why-India feature icons: soft float (animate inner glyph so hover-rotate on the box still works) */
+.feature-icon i { animation: gc-float-y 3.4s ease-in-out infinite; }
+.row > [class*="col"]:nth-child(3n+2) .feature-icon i { animation-duration: 4.1s; }
+.row > [class*="col"]:nth-child(3n) .feature-icon i { animation-duration: 3.7s; }
+/* Travel-assist icons: soft float, staggered */
+.assist-icon i { animation: gc-float-y 3.6s ease-in-out infinite; }
+.row > [class*="col"]:nth-child(2n) .assist-icon i { animation-duration: 4.3s; }
+/* Timeline step icons: gentle swing */
+.timeline-icon i { animation: gc-swing 3s ease-in-out infinite; transform-origin: center; }
+/* Hero + final-CTA plane: fly back and forth */
+.route-arrow i { animation: gc-float-x 2.4s ease-in-out infinite; }
+/* Section link arrows already move on hover; add a resting nudge cue on treatment links */
+.link-cta i { animation: gc-float-x 1.8s ease-in-out infinite; }
+
 /* ============ 14. ANIMATIONS ============ */
 /* Elements only start hidden when JS is active (html.js). If JS is disabled or
    fails, content stays fully visible — no blank sections, ever. */
