@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="675" viewBox="0 0 900 675" role="img" aria-label="placeholder">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0d7d7a"/><stop offset="1" stop-color="#0a5f5d"/></linearGradient>
+  <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.4" fill="#fff" opacity="0.10"/></pattern></defs>
+  <rect width="900" height="675" fill="url(#g)"/><rect width="900" height="675" fill="url(#dots)"/>
+  <g transform="translate(450.0,256.5)" opacity="0.9"><rect x="-16.875" y="-50.625" width="33.75" height="101.25" rx="8.4375" fill="#fff"/><rect x="-50.625" y="-16.875" width="101.25" height="33.75" rx="8.4375" fill="#fff"/></g>
+  <text x="50%" y="432.0" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif" font-weight="700" font-size="40" fill="#fff">Global Care Health</text>
+  <text x="50%" y="486.0" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif" font-size="22" fill="#fff" opacity="0.72">Replace with licensed image</text></svg>

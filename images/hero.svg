@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1100" viewBox="0 0 900 1100" role="img" aria-label="placeholder">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0d7d7a"/><stop offset="1" stop-color="#123a5e"/></linearGradient>
+  <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.4" fill="#fff" opacity="0.10"/></pattern></defs>
+  <rect width="900" height="1100" fill="url(#g)"/><rect width="900" height="1100" fill="url(#dots)"/>
+  <g transform="translate(450.0,418.0)" opacity="0.9"><rect x="-22.5" y="-67.5" width="45.0" height="135.0" rx="11.25" fill="#fff"/><rect x="-67.5" y="-22.5" width="135.0" height="45.0" rx="11.25" fill="#fff"/></g>
+  <text x="50%" y="704.0" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif" font-weight="700" font-size="40" fill="#fff">International Patient Care</text>
+  <text x="50%" y="758.0" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif" font-size="22" fill="#fff" opacity="0.72">Replace with licensed image</text></svg>

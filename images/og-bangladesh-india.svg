@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="placeholder">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0d7d7a"/><stop offset="1" stop-color="#123a5e"/></linearGradient>
+  <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.4" fill="#fff" opacity="0.10"/></pattern></defs>
+  <rect width="1200" height="630" fill="url(#g)"/><rect width="1200" height="630" fill="url(#dots)"/>
+  <g transform="translate(600.0,239.4)" opacity="0.9"><rect x="-15.75" y="-47.25" width="31.5" height="94.5" rx="7.875" fill="#fff"/><rect x="-47.25" y="-15.75" width="94.5" height="31.5" rx="7.875" fill="#fff"/></g>
+  <text x="50%" y="403.2" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif" font-weight="700" font-size="54" fill="#fff">Medical Treatment in India</text>
+  <text x="50%" y="476.1" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif" font-size="29" fill="#fff" opacity="0.72">for Patients from Bangladesh</text></svg>
