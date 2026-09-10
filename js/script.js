@@ -146,8 +146,11 @@
     /* NOTE: This is client-side validation + a demo success message only.
        Connect the form to your CRM/ERP or an email endpoint to capture live leads.
        Example: replace the demo block with a fetch() POST to your backend. */
-    var form = document.getElementById('treatmentPlanForm');
-    if (form) {
+    /* Handles both the hero banner form (#heroLeadForm) and the full
+       report-submission form (#treatmentPlanForm). */
+    ['heroLeadForm', 'treatmentPlanForm'].forEach(function (formId) {
+      var form = document.getElementById(formId);
+      if (!form) { return; }
       form.addEventListener('submit', function (e) {
         e.preventDefault();
         form.classList.add('was-validated');
@@ -164,37 +167,87 @@
         // Replace this block with a real submission, e.g.:
         // var data = new FormData(form);
         // fetch('/api/lead', { method: 'POST', body: data })...
-        var successMsg = document.getElementById('formSuccess');
+        var successMsg = form.querySelector('.form-success');
         if (successMsg) {
           successMsg.classList.remove('d-none');
           successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
         form.reset();
         form.classList.remove('was-validated');
-        // Optionally reset the pre-filled country field
-        var country = document.getElementById('country');
-        if (country) country.value = 'Bangladesh';
       });
-    }
+    });
+
+    /* ---------- 8. Hospital slider (single row, scroll-snap, autoplay) ---------- */
+    document.querySelectorAll('.hospital-slider').forEach(function (slider) {
+      var track = slider.querySelector('.slider-track');
+      var prev = slider.querySelector('.slider-prev');
+      var next = slider.querySelector('.slider-next');
+      var dotsWrap = slider.querySelector('.slider-dots');
+      var items = Array.prototype.slice.call(track.querySelectorAll('.slider-item'));
+      if (!track || !items.length) { return; }
+
+      var stepWidth = function () {
+        var gap = parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap) || 0;
+        return items[0].getBoundingClientRect().width + gap;
+      };
+      var maxScroll = function () { return track.scrollWidth - track.clientWidth; };
+      var pageCount = function () { return Math.max(1, Math.ceil(maxScroll() / stepWidth()) + 1); };
+
+      // Dots
+      var buildDots = function () {
+        if (!dotsWrap) { return; }
+        dotsWrap.innerHTML = '';
+        var n = pageCount();
+        for (var i = 0; i < n; i++) { dotsWrap.appendChild(document.createElement('span')); }
+      };
+      var updateUI = function () {
+        var idx = Math.round(track.scrollLeft / stepWidth());
+        if (dotsWrap) {
+          Array.prototype.forEach.call(dotsWrap.children, function (d, i) { d.classList.toggle('active', i === idx); });
+        }
+        if (prev) { prev.disabled = track.scrollLeft <= 2; }
+        if (next) { next.disabled = track.scrollLeft >= maxScroll() - 2; }
+      };
+
+      var go = function (dir) {
+        var target = track.scrollLeft + dir * stepWidth();
+        if (dir > 0 && track.scrollLeft >= maxScroll() - 2) { target = 0; }          // loop to start
+        if (dir < 0 && track.scrollLeft <= 2) { target = maxScroll(); }             // loop to end
+        track.scrollTo({ left: target, behavior: 'smooth' });
+      };
+      if (prev) { prev.addEventListener('click', function () { go(-1); restart(); }); }
+      if (next) { next.addEventListener('click', function () { go(1); restart(); }); }
+      track.addEventListener('scroll', updateUI, { passive: true });
+      track.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowRight') { go(1); restart(); }
+        if (e.key === 'ArrowLeft') { go(-1); restart(); }
+      });
+
+      // Autoplay (pauses on hover/focus/touch; respects reduced motion)
+      var interval = parseInt(slider.getAttribute('data-autoplay'), 10) || 0;
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var timer = null;
+      var start = function () { if (interval && !reduce && !timer) { timer = setInterval(function () { go(1); }, interval); } };
+      var stop = function () { if (timer) { clearInterval(timer); timer = null; } };
+      var restart = function () { stop(); start(); };
+      ['mouseenter', 'focusin', 'touchstart'].forEach(function (ev) { slider.addEventListener(ev, stop, { passive: true }); });
+      ['mouseleave', 'focusout', 'touchend'].forEach(function (ev) { slider.addEventListener(ev, start, { passive: true }); });
+
+      window.addEventListener('resize', function () { buildDots(); updateUI(); });
+      buildDots(); updateUI(); start();
+    });
 
     /* ---------- 9. Footer year ---------- */
     var yearEl = document.getElementById('year');
     if (yearEl) { yearEl.textContent = new Date().getFullYear(); }
 
-    /* ---------- 10. Banner popup lead modal (auto-open once per session) ---------- */
+    /* ---------- 10. "Speak to a Patient Coordinator" modal ----------
+       Opened ONLY by the secondary CTA buttons (data-bs-toggle="modal").
+       No auto-open: the oncology landing-page strategy explicitly excludes
+       pop-ups, exit-intent modals and countdown timers. */
     var leadModalEl = document.getElementById('leadModal');
     if (leadModalEl && window.bootstrap) {
-      var leadModal = new bootstrap.Modal(leadModalEl);
-      var shown = false;
-      try { shown = sessionStorage.getItem('gcLeadShown') === '1'; } catch (e) {}
-      if (!shown) {
-        setTimeout(function () {
-          leadModal.show();
-          try { sessionStorage.setItem('gcLeadShown', '1'); } catch (e) {}
-        }, 4000); // appears 4s after load, like a typical landing-page popup
-      }
-
-      // Popup form submit (demo)
+      // Coordinator call-back form submit (demo)
       var popForm = document.getElementById('popupLeadForm');
       if (popForm) {
         popForm.addEventListener('submit', function (e) {

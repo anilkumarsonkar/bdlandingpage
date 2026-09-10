@@ -22,12 +22,13 @@
 
 /* ============ 1. DESIGN TOKENS — EDIT BRAND COLORS HERE ============ */
 :root {
-  /* Brand palette (professional healthcare). Adjust to match exact brand kit. */
-  --gc-primary: #0d7d7a;          /* deep medical teal */
-  --gc-primary-dark: #0a5f5d;
-  --gc-primary-light: #12a3a0;
-  --gc-secondary: #123a5e;        /* trust navy */
-  --gc-accent: #16b8a6;           /* fresh accent */
+  /* Brand palette — derived from the GlobalCare logo (teal cross + navy wordmark + red plus). */
+  --gc-primary: #159c99;          /* logo teal, deepened for contrast on white */
+  --gc-primary-dark: #0e7573;
+  --gc-primary-light: #5bb8b5;    /* exact logo teal */
+  --gc-secondary: #1e3a63;        /* logo navy wordmark */
+  --gc-accent: #38b6b3;           /* bright logo teal */
+  --gc-red: #c92629;              /* logo red cross accent */
   --gc-whatsapp: #25d366;
   --gc-whatsapp-dark: #1da851;
 
@@ -36,13 +37,13 @@
   --gc-in-saffron: #ff9933;       /* India saffron */
 
   /* Neutrals */
-  --gc-ink: #10202b;
-  --gc-body: #45535d;
+  --gc-ink: #16263f;              /* navy-tinted ink to match logo wordmark */
+  --gc-body: #47535f;
   --gc-muted: #7c8a93;
-  --gc-line: #e6ecef;
+  --gc-line: #e5ecee;
   --gc-bg: #ffffff;
-  --gc-bg-alt: #f4f8f9;
-  --gc-bg-soft: #eef5f5;
+  --gc-bg-alt: #f3f8f8;
+  --gc-bg-soft: #ecf5f4;
 
   /* System */
   --gc-radius: 16px;
@@ -150,6 +151,12 @@ a { text-decoration: none; color: var(--gc-primary); }
 }
 .brand-text { font-family: var(--gc-font-head); font-weight: 800; font-size: 1.28rem; color: var(--gc-secondary); letter-spacing: -.02em; }
 .brand-accent { color: var(--gc-primary); }
+
+/* Brand logo image (replaces icon + text mark) */
+.brand-logo { height: 46px; width: auto; display: block; }
+@media (max-width: 575.98px) { .brand-logo { height: 40px; } }
+/* Footer logo sits on a dark background — give it a clean white plate */
+.brand-logo--footer { height: 52px; background: #fff; padding: 8px 12px; border-radius: 10px; }
 
 .navbar-nav .nav-link {
   font-family: var(--gc-font-head); font-weight: 600; color: var(--gc-secondary);
@@ -617,4 +624,194 @@ a { text-decoration: none; color: var(--gc-primary); }
 /* Larger desktops */
 @media (min-width: 1400px) {
   .container { max-width: 1240px; }
+}
+
+/* ============ 16. ONCOLOGY LANDING PAGE ADDITIONS ============ */
+/* Section 2 — trust strip */
+.trust-strip { background: var(--gc-bg-soft); border-top: 1px solid var(--gc-line); border-bottom: 1px solid var(--gc-line); padding: 36px 0; }
+.trust-item { display: flex; gap: 14px; align-items: flex-start; }
+.trust-ico { flex: 0 0 auto; width: 46px; height: 46px; border-radius: 12px; background: #fff; color: var(--gc-primary); display: inline-flex; align-items: center; justify-content: center; font-size: 1.15rem; box-shadow: var(--gc-shadow-sm); }
+.trust-item strong { display: block; font-family: var(--gc-font-head); color: var(--gc-ink); font-size: .98rem; margin-bottom: 2px; }
+.trust-item span { font-size: .86rem; color: var(--gc-body); line-height: 1.45; }
+
+/* Section 3 — who this is for */
+.who-list { max-width: 940px; margin: 0 auto; }
+.who-intro { font-family: var(--gc-font-head); font-weight: 700; color: var(--gc-secondary); font-size: 1.05rem; margin-bottom: 22px; }
+.who-list li { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 14px; font-size: 1.02rem; color: var(--gc-ink); line-height: 1.5; }
+.who-list li i { color: var(--gc-primary); font-size: 1.1rem; margin-top: 4px; flex: 0 0 auto; }
+.who-note { max-width: 780px; margin: 28px auto 0; background: var(--gc-bg-soft); border-radius: var(--gc-radius-sm); padding: 18px 22px; color: var(--gc-body); font-size: .96rem; text-align: center; line-height: 1.55; }
+.who-note i { color: var(--gc-primary); }
+
+/* Section 5 — know before you go */
+.know-panel { background: #fff; border: 1px solid var(--gc-line); border-radius: var(--gc-radius-lg); padding: 34px 36px; box-shadow: var(--gc-shadow); }
+.know-list li { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 16px; font-size: 1.02rem; color: var(--gc-ink); line-height: 1.5; }
+.know-list li:last-child { margin-bottom: 0; }
+.know-list li i { flex: 0 0 auto; width: 40px; height: 40px; border-radius: 12px; background: var(--gc-bg-soft); color: var(--gc-primary); display: inline-flex; align-items: center; justify-content: center; font-size: 1rem; }
+.know-closing { font-size: .92rem; color: var(--gc-muted); margin-top: 18px; line-height: 1.55; }
+.know-closing i { color: var(--gc-primary); }
+
+/* Section 6 — pills */
+.pill-group-title { font-family: var(--gc-font-head); font-weight: 700; color: var(--gc-secondary); font-size: .86rem; text-transform: uppercase; letter-spacing: .08em; margin: 0 0 14px; }
+.pill-row { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 34px; }
+.pill { display: inline-flex; align-items: center; gap: 8px; background: #fff; border: 1px solid var(--gc-line); border-radius: 999px; padding: 10px 18px; font-family: var(--gc-font-head); font-weight: 600; color: var(--gc-ink); font-size: .93rem; transition: var(--gc-transition); text-decoration: none; }
+.pill i { color: var(--gc-primary); }
+.pill:hover { border-color: var(--gc-primary); color: var(--gc-primary); transform: translateY(-2px); box-shadow: var(--gc-shadow-sm); }
+
+/* Section 8 — patient story fallback */
+.story-panel { max-width: 820px; margin: 0 auto; background: #fff; border: 1px solid var(--gc-line); border-radius: var(--gc-radius-lg); padding: 44px 40px; text-align: center; box-shadow: var(--gc-shadow-sm); }
+.story-panel .story-ico { display: block; font-size: 2.2rem; color: var(--gc-primary-light); margin-bottom: 16px; }
+.story-panel p { color: var(--gc-body); font-size: 1.05rem; max-width: 600px; margin: 0 auto 22px; line-height: 1.6; }
+
+/* Section 9 — cost factors */
+.cost-factors { list-style: none; padding: 0; margin: 12px 0 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.cost-factors li { display: flex; gap: 10px; align-items: center; background: #fff; border: 1px solid var(--gc-line); border-radius: var(--gc-radius-sm); padding: 12px 14px; font-family: var(--gc-font-head); font-weight: 600; color: var(--gc-ink); font-size: .93rem; text-align: left; }
+.cost-factors i { color: var(--gc-primary); flex: 0 0 auto; }
+
+/* Section 10 — assist cards with description */
+.assist-card p { margin: 8px 0 0; font-size: .86rem; color: var(--gc-body); line-height: 1.5; }
+
+/* Hero secondary CTA as a text link */
+.hero-cta .link-cta { font-size: 1rem; }
+
+/* ============ 17. HERO BANNER (Max-style: headline + tiles | doctor | form card) ============ */
+.hero-banner {
+  padding: 40px 0 0;
+  background:
+    radial-gradient(900px 420px at 15% 0%, rgba(255,255,255,.75), transparent 60%),
+    radial-gradient(700px 400px at 90% 100%, rgba(21,156,153,.16), transparent 60%),
+    linear-gradient(120deg, #eaf5fb 0%, #d8ecf7 45%, #cfe7f3 100%);
+  overflow: hidden;
+}
+.hero-banner::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background-image: radial-gradient(rgba(255,255,255,.9) 1.5px, transparent 1.5px);
+  background-size: 22px 22px; opacity: .7;
+}
+.hero-deco { position: absolute; border-radius: 50%; pointer-events: none; z-index: 0; }
+.hero-deco-1 { width: 420px; height: 420px; left: -140px; top: -180px; background: radial-gradient(circle, rgba(255,255,255,.7), rgba(255,255,255,0) 70%); }
+.hero-deco-2 { width: 520px; height: 520px; right: -160px; bottom: -260px; background: radial-gradient(circle, rgba(21,156,153,.22), rgba(21,156,153,0) 70%); }
+.hero-banner .container { position: relative; z-index: 2; }
+.hero-banner .hero-content { padding-bottom: 40px; }
+.hero-banner .hero-title { font-size: clamp(1.75rem, 3vw, 2.35rem); color: var(--gc-secondary); font-weight: 700; line-height: 1.22; margin-bottom: 14px; }
+.hero-banner .hero-subtitle { font-size: 1rem; max-width: 520px; margin-bottom: 22px; }
+.hero-banner .route-badge { margin-bottom: 16px; font-size: .86rem; padding: 7px 14px; }
+
+/* 2x2 tiles */
+.hero-tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; max-width: 480px; margin-bottom: 8px; }
+.hero-tile { display: flex; align-items: center; gap: 10px; background: rgba(255,255,255,.55); border: 1px solid rgba(255,255,255,.7); border-radius: 10px; padding: 10px 12px; backdrop-filter: blur(4px); }
+.hero-tile-ico { flex: 0 0 auto; width: 34px; height: 34px; border-radius: 50%; background: var(--gc-primary); color: #fff; display: inline-flex; align-items: center; justify-content: center; font-size: .95rem; box-shadow: 0 4px 10px rgba(21,156,153,.35); }
+.hero-tile strong { display: block; font-family: var(--gc-font-head); font-weight: 700; color: var(--gc-primary-dark); font-size: .95rem; line-height: 1.2; }
+.hero-tile span { display: block; font-size: .8rem; color: var(--gc-secondary); }
+
+/* Doctor visual — bottom-aligned to the banner floor */
+.hero-doc-col { align-items: flex-end; justify-content: center; align-self: flex-end; }
+.hero-doc { position: relative; width: 100%; max-width: 320px; margin-top: 10px; }
+.hero-doc::before { content: ""; position: absolute; left: 50%; bottom: 0; transform: translateX(-50%); width: 300px; height: 300px; border-radius: 50%; background: radial-gradient(circle, rgba(255,255,255,.75), rgba(255,255,255,.15) 65%, transparent 72%); z-index: 0; }
+.hero-doc img {
+  position: relative; z-index: 1; display: block; width: 100%; height: auto; aspect-ratio: 9/11; object-fit: cover; object-position: center top;
+  border-radius: 160px 160px 0 0;
+  -webkit-mask-image: linear-gradient(to bottom, #000 82%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 82%, transparent 100%);
+  filter: drop-shadow(0 18px 30px rgba(18,58,94,.22));
+}
+
+/* Floating form card */
+.hero-form-col { padding-bottom: 40px; }
+.hero-form-card { background: #fff; border-radius: 14px; padding: 22px 22px 18px; box-shadow: 0 18px 50px rgba(18,58,94,.18); border: 1px solid rgba(255,255,255,.8); }
+.hero-form-title { font-family: var(--gc-font-head); font-weight: 800; font-size: 1.15rem; color: var(--gc-secondary); text-transform: uppercase; letter-spacing: .02em; margin-bottom: 4px; }
+.hero-form-sub { font-size: .84rem; color: var(--gc-muted); margin-bottom: 14px; }
+.hero-form-card .form-control, .hero-form-card .form-select { border-radius: 8px; font-size: .9rem; padding: 9px 12px; border-color: #d9e3ea; background: #f7fafc; }
+.hero-form-card .form-control:focus, .hero-form-card .form-select:focus { background: #fff; border-color: var(--gc-primary); box-shadow: 0 0 0 3px rgba(21,156,153,.15); }
+.hero-form-card .input-group-text { background: #eef4f8; border-color: #d9e3ea; border-radius: 8px 0 0 8px; font-size: .85rem; font-weight: 600; color: var(--gc-secondary); }
+.hero-form-card .input-group .form-control { border-radius: 0 8px 8px 0; }
+.hero-upload-label { font-size: .78rem; color: var(--gc-body); margin-bottom: 4px; }
+.hero-upload-label i { color: var(--gc-primary); }
+.hero-form-card .form-control-sm { font-size: .78rem; padding: 6px 10px; }
+.hero-form-card .btn-primary-cta { border-radius: 8px; padding: 12px 16px; font-size: .95rem; margin-top: 4px; }
+.hero-form-privacy { font-size: .72rem; color: var(--gc-muted); margin-top: 10px; line-height: 1.4; }
+.hero-form-privacy i { color: var(--gc-primary); }
+.hero-form-card .form-success { font-size: .85rem; }
+
+/* Contact mini-bar under the form */
+.hero-contact { display: flex; gap: 8px; margin-top: 10px; }
+.hero-contact a { flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 7px; background: rgba(255,255,255,.7); border: 1px solid rgba(255,255,255,.9); border-radius: 10px; padding: 10px 8px; font-family: var(--gc-font-head); font-weight: 600; font-size: .82rem; color: var(--gc-secondary); text-decoration: none; transition: var(--gc-transition); white-space: nowrap; }
+.hero-contact a i { color: var(--gc-primary); font-size: 1rem; }
+.hero-contact a b { color: var(--gc-primary-dark); }
+.hero-contact a:hover { background: #fff; transform: translateY(-2px); box-shadow: var(--gc-shadow-sm); }
+.hero-contact .hero-contact-wa { background: var(--gc-whatsapp); color: #fff; border-color: var(--gc-whatsapp); }
+.hero-contact .hero-contact-wa i { color: #fff; }
+.hero-contact .hero-contact-wa:hover { background: var(--gc-whatsapp-dark); }
+
+/* ============ 18. HOSPITAL SLIDER (single row, scroll-snap) ============ */
+.hospital-slider { position: relative; --slide-gap: 20px; --per-view: 4; padding: 0 4px; }
+.slider-track {
+  display: flex; gap: var(--slide-gap); overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth;
+  padding: 8px 4px 16px; margin: -8px -4px 0;
+  scrollbar-width: none; -ms-overflow-style: none; outline: none;
+}
+.slider-track::-webkit-scrollbar { display: none; }
+.slider-track:focus-visible { box-shadow: 0 0 0 3px rgba(21,156,153,.25); border-radius: var(--gc-radius); }
+.slider-item { flex: 0 0 calc((100% - (var(--per-view) - 1) * var(--slide-gap)) / var(--per-view)); scroll-snap-align: start; display: flex; flex-direction: column; }
+.slider-item .hospital-body { display: flex; flex-direction: column; flex: 1; }
+.slider-item .hospital-actions { margin-top: auto; padding-top: 12px; }
+.hospital-media { position: relative; }
+.hospital-tag {
+  position: absolute; top: 12px; left: 12px; display: inline-flex; align-items: center; gap: 6px;
+  background: rgba(255,255,255,.95); color: var(--gc-primary-dark); font-family: var(--gc-font-head); font-weight: 700; font-size: .74rem;
+  padding: 5px 10px; border-radius: 999px; box-shadow: var(--gc-shadow-sm); letter-spacing: .02em;
+}
+.hospital-tag i { color: var(--gc-red); }
+.slider-btn {
+  position: absolute; top: 40%; transform: translateY(-50%); z-index: 3;
+  width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--gc-line); background: #fff; color: var(--gc-secondary);
+  display: inline-flex; align-items: center; justify-content: center; box-shadow: var(--gc-shadow); cursor: pointer; transition: var(--gc-transition);
+}
+.slider-btn:hover { background: var(--gc-primary); color: #fff; border-color: var(--gc-primary); }
+.slider-btn:disabled { opacity: .35; cursor: default; }
+.slider-prev { left: -22px; }
+.slider-next { right: -22px; }
+.slider-dots { display: flex; justify-content: center; gap: 8px; margin-top: 6px; }
+.slider-dots span { width: 8px; height: 8px; border-radius: 50%; background: var(--gc-line); transition: var(--gc-transition); }
+.slider-dots span.active { background: var(--gc-primary); width: 22px; border-radius: 999px; }
+
+/* Testimonial variant: wider cards (3 per view on desktop) */
+.testimonial-slider { --per-view: 3; }
+.testimonial-slider .slider-item.testimonial-card { padding: 28px 26px; height: auto; align-self: stretch; }
+.testimonial-slider .testimonial-text { flex: 1; }
+.testimonial-slider .slider-btn { top: 50%; }
+
+@media (max-width: 1199.98px) { .hospital-slider { --per-view: 3; } }
+@media (max-width: 991.98px)  { .hospital-slider { --per-view: 2; } .slider-prev { left: -8px; } .slider-next { right: -8px; } }
+@media (max-width: 575.98px)  { .hospital-slider { --per-view: 1.15; --slide-gap: 14px; } .slider-btn { width: 38px; height: 38px; } .slider-prev { left: -6px; } .slider-next { right: -6px; } }
+
+/* Navy appointment strip under the banner */
+.appointment-strip { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px 28px; background: var(--gc-secondary); color: #fff; border-radius: 10px; padding: 14px 24px; margin-top: 22px; box-shadow: var(--gc-shadow-sm); }
+.appointment-strip p { font-family: var(--gc-font-head); font-size: 1.15rem; color: #fff; }
+.appointment-strip a { display: inline-flex; align-items: center; gap: 9px; color: #fff; text-decoration: none; font-weight: 500; font-size: .95rem; padding: 6px 4px; }
+.appointment-strip a b { font-weight: 700; }
+.strip-ico { width: 32px; height: 32px; border-radius: 50%; background: var(--gc-primary); color: #fff; display: inline-flex; align-items: center; justify-content: center; font-size: .85rem; }
+.strip-ico-wa { background: var(--gc-whatsapp); }
+.appointment-strip a:hover { color: #d7fffb; }
+
+@media (max-width: 991.98px) {
+  .hero-banner { padding: 36px 0 0; }
+  .hero-banner .hero-content { padding-bottom: 8px; }
+  .hero-form-col { padding-bottom: 32px; }
+  .hero-tiles { max-width: none; margin-bottom: 20px; }
+}
+@media (max-width: 575.98px) {
+  .hero-tiles { grid-template-columns: 1fr; }
+  .hero-form-card { padding: 18px 16px 14px; }
+  .hero-contact a { font-size: .78rem; }
+  .hero-contact a b { display: none; }
+  .appointment-strip { padding: 14px 16px; gap: 8px 16px; text-align: center; }
+  .appointment-strip p { width: 100%; }
+}
+
+@media (max-width: 767.98px) {
+  .cost-factors { grid-template-columns: 1fr; }
+  .know-panel { padding: 24px; }
+  .story-panel { padding: 30px 22px; }
+  .trust-strip { padding: 28px 0; }
+  .trust-item { flex-direction: column; gap: 10px; }
 }
