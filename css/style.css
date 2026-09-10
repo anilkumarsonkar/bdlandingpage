@@ -32,6 +32,12 @@
   --gc-whatsapp: #25d366;
   --gc-whatsapp-dark: #1da851;
 
+  /* GlobalCare brand button gradient (same as globalcarehealth.com) */
+  --gchLiteBlue: #008DA0;
+  --gchDarkBlue: #165699;
+  --gc-btn-gradient: linear-gradient(to right, var(--gchLiteBlue), var(--gchDarkBlue));
+  --gc-btn-gradient-hover: linear-gradient(to right, #0a7f90, #124a85);
+
   /* Country accent tints (used subtly) */
   --gc-bd-green: #006a4e;         /* Bangladesh green */
   --gc-in-saffron: #ff9933;       /* India saffron */
@@ -108,20 +114,21 @@ a { text-decoration: none; color: var(--gc-primary); }
 .btn-lg { padding: 15px 32px; font-size: 1.02rem; }
 .btn-sm { padding: 8px 16px; font-size: .85rem; }
 
+/* All solid buttons use the GlobalCare brand gradient (lite blue -> dark blue) */
 .btn-primary-cta {
-  background: linear-gradient(135deg, var(--gc-primary), var(--gc-primary-light));
-  color: #fff; box-shadow: 0 10px 24px rgba(13, 125, 122, .28);
+  background: var(--gc-btn-gradient);
+  color: #fff; box-shadow: 0 10px 24px rgba(22, 86, 153, .28);
 }
-.btn-primary-cta:hover { color: #fff; transform: translateY(-3px); box-shadow: 0 16px 32px rgba(13, 125, 122, .38); }
+.btn-primary-cta:hover, .btn-primary-cta:focus-visible { background: var(--gc-btn-gradient-hover); color: #fff; transform: translateY(-3px); box-shadow: 0 16px 32px rgba(22, 86, 153, .38); }
 
-.btn-outline-cta { background: transparent; color: var(--gc-primary); border-color: var(--gc-primary); }
-.btn-outline-cta:hover { background: var(--gc-primary); color: #fff; transform: translateY(-3px); }
+.btn-outline-cta { background: transparent; color: var(--gchDarkBlue); border-color: var(--gchLiteBlue); }
+.btn-outline-cta:hover { background: var(--gc-btn-gradient); border-color: transparent; color: #fff; transform: translateY(-3px); }
 
-.btn-ghost-cta { background: transparent; color: var(--gc-secondary); border-color: var(--gc-line); margin-left: 10px; }
-.btn-ghost-cta:hover { background: var(--gc-secondary); color: #fff; border-color: var(--gc-secondary); transform: translateY(-3px); }
+.btn-ghost-cta { background: transparent; color: var(--gchDarkBlue); border-color: var(--gc-line); margin-left: 10px; }
+.btn-ghost-cta:hover { background: var(--gc-btn-gradient); color: #fff; border-color: transparent; transform: translateY(-3px); }
 
-.btn-light-cta { background: #fff; color: var(--gc-primary); }
-.btn-light-cta:hover { background: #eafffd; color: var(--gc-primary-dark); transform: translateY(-3px); }
+.btn-light-cta { background: #fff; color: var(--gchDarkBlue); }
+.btn-light-cta:hover { background: var(--gc-btn-gradient); color: #fff; transform: translateY(-3px); }
 
 .btn-outline-cta.text-white { color: #fff; border-color: rgba(255,255,255,.6); }
 
@@ -129,7 +136,7 @@ a { text-decoration: none; color: var(--gc-primary); }
 .btn-whatsapp:hover { background: var(--gc-whatsapp-dark); color: #fff; transform: translateY(-3px); }
 
 /* Hero outline (on dark) */
-.btn-outline-cta.btn-lg { border-color: var(--gc-primary); }
+.btn-outline-cta.btn-lg { border-color: var(--gchLiteBlue); }
 
 /* ============ 4. HEADER / NAVBAR ============ */
 .site-header {
@@ -481,8 +488,8 @@ a { text-decoration: none; color: var(--gc-primary); }
 }
 .float-whatsapp { bottom: 22px; background: var(--gc-whatsapp); animation: gc-pulse 2.4s infinite; }
 .float-whatsapp:hover { background: var(--gc-whatsapp-dark); color: #fff; transform: scale(1.08); }
-.float-phone { bottom: 88px; background: var(--gc-primary); font-size: 1.25rem; }
-.float-phone:hover { background: var(--gc-primary-dark); color: #fff; transform: scale(1.08); }
+.float-phone { bottom: 88px; background: var(--gc-btn-gradient); font-size: 1.25rem; }
+.float-phone:hover { background: var(--gc-btn-gradient-hover); color: #fff; transform: scale(1.08); }
 
 .back-to-top {
   position: fixed; left: 18px; bottom: 22px; z-index: 1040; width: 46px; height: 46px; border-radius: 50%;
@@ -491,7 +498,7 @@ a { text-decoration: none; color: var(--gc-primary); }
   box-shadow: var(--gc-shadow);
 }
 .back-to-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
-.back-to-top:hover { background: var(--gc-primary); }
+.back-to-top:hover { background: var(--gc-btn-gradient); }
 
 .mobile-cta-bar {
   position: fixed; left: 0; right: 0; bottom: 0; z-index: 1035;
@@ -699,7 +706,7 @@ a { text-decoration: none; color: var(--gc-primary); }
 /* 2x2 tiles */
 .hero-tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; max-width: 480px; margin-bottom: 8px; }
 .hero-tile { display: flex; align-items: center; gap: 10px; background: rgba(255,255,255,.55); border: 1px solid rgba(255,255,255,.7); border-radius: 10px; padding: 10px 12px; backdrop-filter: blur(4px); }
-.hero-tile-ico { flex: 0 0 auto; width: 34px; height: 34px; border-radius: 50%; background: var(--gc-primary); color: #fff; display: inline-flex; align-items: center; justify-content: center; font-size: .95rem; box-shadow: 0 4px 10px rgba(21,156,153,.35); }
+.hero-tile-ico { flex: 0 0 auto; width: 34px; height: 34px; border-radius: 50%; background: var(--gc-btn-gradient); color: #fff; display: inline-flex; align-items: center; justify-content: center; font-size: .95rem; box-shadow: 0 4px 10px rgba(22,86,153,.35); }
 .hero-tile strong { display: block; font-family: var(--gc-font-head); font-weight: 700; color: var(--gc-primary-dark); font-size: .95rem; line-height: 1.2; }
 .hero-tile span { display: block; font-size: .8rem; color: var(--gc-secondary); }
 
@@ -766,7 +773,7 @@ a { text-decoration: none; color: var(--gc-primary); }
   width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--gc-line); background: #fff; color: var(--gc-secondary);
   display: inline-flex; align-items: center; justify-content: center; box-shadow: var(--gc-shadow); cursor: pointer; transition: var(--gc-transition);
 }
-.slider-btn:hover { background: var(--gc-primary); color: #fff; border-color: var(--gc-primary); }
+.slider-btn:hover { background: var(--gc-btn-gradient); color: #fff; border-color: transparent; }
 .slider-btn:disabled { opacity: .35; cursor: default; }
 .slider-prev { left: -22px; }
 .slider-next { right: -22px; }
@@ -789,7 +796,7 @@ a { text-decoration: none; color: var(--gc-primary); }
 .appointment-strip p { font-family: var(--gc-font-head); font-size: 1.15rem; color: #fff; }
 .appointment-strip a { display: inline-flex; align-items: center; gap: 9px; color: #fff; text-decoration: none; font-weight: 500; font-size: .95rem; padding: 6px 4px; }
 .appointment-strip a b { font-weight: 700; }
-.strip-ico { width: 32px; height: 32px; border-radius: 50%; background: var(--gc-primary); color: #fff; display: inline-flex; align-items: center; justify-content: center; font-size: .85rem; }
+.strip-ico { width: 32px; height: 32px; border-radius: 50%; background: var(--gc-btn-gradient); color: #fff; display: inline-flex; align-items: center; justify-content: center; font-size: .85rem; }
 .strip-ico-wa { background: var(--gc-whatsapp); }
 .appointment-strip a:hover { color: #d7fffb; }
 
