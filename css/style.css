@@ -794,16 +794,22 @@ a { text-decoration: none; color: var(--gc-primary); }
 .fb-thumb { position: relative; width: 100%; aspect-ratio: 16 / 10; border-radius: var(--gc-radius-sm); overflow: hidden; background: #0b1b2b; margin-bottom: 14px; }
 /* Facebook's own poster, cropped to fill the box (pointer-events off so the play button handles clicks) */
 .fb-thumb .fb-poster { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); border: 0; pointer-events: none; }
+/* The iframe is sized to the video's exact ratio (box is 16:10), so Facebook's own centered play button
+   sits exactly under ours and stays hidden. Heights are % of the box height (0.625 x width). */
 .fb-thumb--portrait .fb-poster  { width: 100%; height: 284.5%; }   /* 9:16 video: width fills, crop top/bottom */
+.fb-thumb--4x5 .fb-poster       { width: 100%; height: 200%; }     /* 4:5 video: width fills, crop top/bottom */
 .fb-thumb--landscape .fb-poster { width: 111.2%; height: 100%; }   /* 16:9 video: height fills, crop sides */
 .fb-thumb::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(11,27,43,.45), rgba(11,27,43,0) 55%); pointer-events: none; }
-.fb-thumb .video-play { z-index: 2; background: var(--gc-btn-gradient); color: #fff; box-shadow: 0 10px 24px rgba(22,86,153,.4); }
+.fb-thumb .video-play { z-index: 2; width: 74px; height: 74px; font-size: 1.35rem; background: var(--gc-btn-gradient); color: #fff; box-shadow: 0 0 0 8px rgba(11,27,43,.35), 0 10px 24px rgba(22,86,153,.4); }
 .fb-thumb .video-play:hover { transform: scale(1.1); }
 /* Modal sizing by video ratio */
 .video-modal--portrait .modal-dialog { max-width: min(420px, calc(86vh * 9 / 16)); }
 .video-modal--portrait .ratio { --bs-aspect-ratio: 177.78%; }
 .video-modal--landscape .modal-dialog { max-width: 900px; }
 .video-modal-content { background: #000; }
+/* Facebook SDK player fills the ratio box */
+#videoHolder { position: absolute; inset: 0; width: 100%; height: 100%; }
+#videoHolder .fb-video, #videoHolder .fb-video > span, #videoHolder iframe { display: block; width: 100% !important; height: 100% !important; border: 0; }
 .testimonial-fb .testimonial-person { padding: 0 6px; align-items: flex-start; }
 .testimonial-tag {
   flex: 0 0 auto; display: inline-flex; align-items: center; gap: 6px; margin-top: 2px;

@@ -266,25 +266,92 @@
       }
     }
 
-    /* ---------- 11. Video testimonial modal ---------- */
+    /* ---------- 11. Video testimonial modal (Facebook player, unmuted) ----------
+       Facebook's embedded player always starts MUTED when it autoplays. To open
+       with sound, we render the video through the Facebook JS SDK and call the
+       player API (unmute + play) as soon as the player is ready. The click on the
+       play button is a user gesture, so browsers allow sound. If the SDK cannot
+       load (blocked / offline) we fall back to the plain iframe embed. */
     var videoModalEl = document.getElementById('videoModal');
-    var videoFrame = document.getElementById('videoFrame');
-    if (videoModalEl && videoFrame) {
-      document.querySelectorAll('.video-play[data-video-url]').forEach(function (btn) {
+    var videoHolder = document.getElementById('videoHolder');
+    if (videoModalEl && videoHolder) {
+      var fbSdkPromise = null;
+      var currentPlayer = null;
+
+      var loadFbSdk = function () {
+        if (fbSdkPromise) { return fbSdkPromise; }
+        fbSdkPromise = new Promise(function (resolve) {
+          if (window.FB) { resolve(window.FB); return; }
+          var done = false;
+          window.fbAsyncInit = function () {
+            if (done) { return; }
+            done = true;
+            try { window.FB.init({ xfbml: false, version: 'v19.0' }); } catch (e) {}
+            // Fires once per rendered plugin; grab the video player instance
+            window.FB.Event.subscribe('xfbml.ready', function (msg) {
+              if (msg && msg.type === 'video' && msg.instance) {
+                currentPlayer = msg.instance;
+                try { currentPlayer.unmute(); currentPlayer.play(); } catch (e) {}
+              }
+            });
+            resolve(window.FB);
+          };
+          var s = document.createElement('script');
+          s.src = 'https://connect.facebook.net/en_US/sdk.js';
+          s.async = true; s.defer = true; s.crossOrigin = 'anonymous';
+          s.onerror = function () { if (!done) { done = true; resolve(null); } };
+          document.head.appendChild(s);
+          // Safety net: if the SDK never initialises, fall back after 6s
+          setTimeout(function () { if (!done) { done = true; resolve(null); } }, 6000);
+        });
+        return fbSdkPromise;
+      };
+
+      var renderFallbackIframe = function (url) {
+        if (!url) { return; }
+        var f = document.createElement('iframe');
+        f.src = url + (url.indexOf('?') > -1 ? '&' : '?') + 'autoplay=true';
+        f.setAttribute('scrolling', 'no'); f.setAttribute('frameborder', '0'); f.setAttribute('allowfullscreen', '');
+        f.setAttribute('allow', 'autoplay; clipboard-write; encrypted-media; picture-in-picture');
+        f.title = 'Patient video testimonial';
+        videoHolder.innerHTML = '';
+        videoHolder.appendChild(f);
+      };
+
+      document.querySelectorAll('.video-play[data-video-url], .video-play[data-fb-href]').forEach(function (btn) {
         btn.addEventListener('click', function () {
-          var url = btn.getAttribute('data-video-url');
+          var pluginUrl = btn.getAttribute('data-video-url');
+          var fbHref = btn.getAttribute('data-fb-href');
           var ratio = btn.getAttribute('data-video-ratio') || '16x9';
           // Size the modal to the video's true ratio (9x16 reels vs 16x9 landscape)
           videoModalEl.classList.toggle('video-modal--portrait', ratio === '9x16');
           videoModalEl.classList.toggle('video-modal--landscape', ratio !== '9x16');
-          if (url) {
-            var isFb = url.indexOf('facebook.com/plugins') > -1;
-            videoFrame.src = url + (url.indexOf('?') > -1 ? '&' : '?') + (isFb ? 'autoplay=true' : 'autoplay=1');
-          }
+
+          currentPlayer = null;
+          videoHolder.innerHTML = '';
+          if (!fbHref) { renderFallbackIframe(pluginUrl); return; }
+
+          var el = document.createElement('div');
+          el.className = 'fb-video';
+          el.setAttribute('data-href', fbHref);
+          el.setAttribute('data-autoplay', 'true');
+          el.setAttribute('data-allowfullscreen', 'true');
+          el.setAttribute('data-show-text', 'false');
+          videoHolder.appendChild(el);
+
+          loadFbSdk().then(function (FB) {
+            if (!FB) { renderFallbackIframe(pluginUrl); return; }
+            try { FB.XFBML.parse(videoHolder); } catch (e) { renderFallbackIframe(pluginUrl); }
+          });
         });
       });
-      // Stop playback when the modal closes
-      videoModalEl.addEventListener('hidden.bs.modal', function () { videoFrame.src = ''; });
+
+      // Stop playback and clear the player when the modal closes
+      videoModalEl.addEventListener('hidden.bs.modal', function () {
+        try { if (currentPlayer) { currentPlayer.pause(); } } catch (e) {}
+        currentPlayer = null;
+        videoHolder.innerHTML = '';
+      });
     }
 
   });

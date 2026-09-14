@@ -133,6 +133,7 @@
 </head>
 
 <body>
+  <div id="fb-root"></div>
   <!-- Enable JS-gated reveal animations (content stays visible if JS is off) -->
   <script>document.documentElement.classList.add('js');</script>
   <!-- Skip link for accessibility -->
@@ -1082,13 +1083,14 @@
         <button class="slider-btn slider-prev" type="button" aria-label="Previous testimonials"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
         <div class="slider-track" tabindex="0" aria-label="Patient video testimonials, scroll horizontally">
 
-          <!-- 1. Cardiac testimonial — https://www.facebook.com/share/v/1dcYktvNaz/ (vertical reel) -->
+          <!-- 1. Cardiac testimonial — https://www.facebook.com/share/v/1dcYktvNaz/ (vertical reel, 9:16) -->
           <article class="testimonial-card testimonial-fb slider-item">
             <div class="fb-thumb fb-thumb--portrait">
               <iframe class="fb-poster" src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2F61583002562345%2Fvideos%2F3859713074163703%2F&show_text=false&width=360"
                       title="Preview: cardiac treatment testimonial" tabindex="-1" aria-hidden="true" loading="lazy" scrolling="no" frameborder="0"></iframe>
               <button class="video-play" type="button"
                       data-video-url="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2F61583002562345%2Fvideos%2F3859713074163703%2F&show_text=false"
+                      data-fb-href="https://www.facebook.com/61583002562345/videos/3859713074163703/"
                       data-video-ratio="9x16" data-bs-toggle="modal" data-bs-target="#videoModal"
                       aria-label="Play video: Lemeki's heart treatment testimonial">
                 <i class="fa-solid fa-play" aria-hidden="true"></i>
@@ -1103,13 +1105,14 @@
             </div>
           </article>
 
-          <!-- 2. Bone Marrow Transplant reel — https://www.facebook.com/share/v/1EWfR2fX2w/ (vertical reel) -->
+          <!-- 2. Bone Marrow Transplant reel — https://www.facebook.com/share/v/1EWfR2fX2w/ (4:5) -->
           <article class="testimonial-card testimonial-fb slider-item">
-            <div class="fb-thumb fb-thumb--portrait">
+            <div class="fb-thumb fb-thumb--4x5">
               <iframe class="fb-poster" src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2F61583002562345%2Fvideos%2F1549026030249796%2F&show_text=false&width=360"
                       title="Preview: bone marrow transplant video" tabindex="-1" aria-hidden="true" loading="lazy" scrolling="no" frameborder="0"></iframe>
               <button class="video-play" type="button"
                       data-video-url="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2F61583002562345%2Fvideos%2F1549026030249796%2F&show_text=false"
+                      data-fb-href="https://www.facebook.com/61583002562345/videos/1549026030249796/"
                       data-video-ratio="9x16" data-bs-toggle="modal" data-bs-target="#videoModal"
                       aria-label="Play video: bone marrow transplant coordination">
                 <i class="fa-solid fa-play" aria-hidden="true"></i>
@@ -1131,6 +1134,7 @@
                       title="Preview: cervical cancer treatment testimonial" tabindex="-1" aria-hidden="true" loading="lazy" scrolling="no" frameborder="0"></iframe>
               <button class="video-play" type="button"
                       data-video-url="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2F61583002562345%2Fvideos%2F1529678122062408%2F&show_text=false"
+                      data-fb-href="https://www.facebook.com/61583002562345/videos/1529678122062408/"
                       data-video-ratio="16x9" data-bs-toggle="modal" data-bs-target="#videoModal"
                       aria-label="Play video: Joyce's cervical cancer treatment testimonial">
                 <i class="fa-solid fa-play" aria-hidden="true"></i>
@@ -1313,7 +1317,8 @@
           <i class="fa-solid fa-xmark" aria-hidden="true"></i>
         </button>
         <div class="ratio ratio-16x9" id="videoRatio">
-          <iframe id="videoFrame" src="" title="Patient video testimonial" scrolling="no" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowfullscreen></iframe>
+          <!-- Facebook SDK renders the player here (unmuted via the player API); falls back to a plain iframe if the SDK is blocked -->
+          <div id="videoHolder"></div>
         </div>
       </div>
     </div>
