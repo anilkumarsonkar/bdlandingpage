@@ -273,7 +273,14 @@
       document.querySelectorAll('.video-play[data-video-url]').forEach(function (btn) {
         btn.addEventListener('click', function () {
           var url = btn.getAttribute('data-video-url');
-          if (url) { videoFrame.src = url + (url.indexOf('?') > -1 ? '&' : '?') + 'autoplay=1'; }
+          var ratio = btn.getAttribute('data-video-ratio') || '16x9';
+          // Size the modal to the video's true ratio (9x16 reels vs 16x9 landscape)
+          videoModalEl.classList.toggle('video-modal--portrait', ratio === '9x16');
+          videoModalEl.classList.toggle('video-modal--landscape', ratio !== '9x16');
+          if (url) {
+            var isFb = url.indexOf('facebook.com/plugins') > -1;
+            videoFrame.src = url + (url.indexOf('?') > -1 ? '&' : '?') + (isFb ? 'autoplay=true' : 'autoplay=1');
+          }
         });
       });
       // Stop playback when the modal closes

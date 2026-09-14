@@ -1074,20 +1074,25 @@
         <p class="section-lead">Real patient stories from families GlobalCare Health has supported on their treatment journey to India.</p>
       </div>
 
-      <!-- Real patient video testimonials from GlobalCare Health's Facebook page (official Facebook video embeds).
-           Single-row slider (same component as the hospital slider). To add: copy one <article class="testimonial-card testimonial-fb slider-item"> block
-           and change the href= inside the iframe src to the full Facebook video URL (URL-encoded). -->
-      <div class="hospital-slider testimonial-slider" id="testimonialSlider" data-animate="fade-up" data-autoplay="0">
+      <!-- Real patient video testimonials from GlobalCare Health's Facebook page.
+           Card = compact 16:10 thumbnail (Facebook's own poster, cropped to fill) + play button.
+           Click opens the video in a modal at its true ratio (data-video-ratio: 9x16 for reels, 16x9 for landscape).
+           To add: copy one <article> block, change the two plugin URLs (href= must be the full Facebook video URL, URL-encoded) and the ratio. -->
+      <div class="hospital-slider testimonial-slider" id="testimonialSlider" data-animate="fade-up" data-autoplay="5000">
         <button class="slider-btn slider-prev" type="button" aria-label="Previous testimonials"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
         <div class="slider-track" tabindex="0" aria-label="Patient video testimonials, scroll horizontally">
 
-          <!-- 1. Cardiac testimonial — https://www.facebook.com/share/v/1dcYktvNaz/ -->
+          <!-- 1. Cardiac testimonial — https://www.facebook.com/share/v/1dcYktvNaz/ (vertical reel) -->
           <article class="testimonial-card testimonial-fb slider-item">
-            <div class="fb-video">
-              <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2F61583002562345%2Fvideos%2F3859713074163703%2F&show_text=false&width=360&t=0"
-                      title="Cardiac treatment patient testimonial — Lemeki's mother, Fiji to India"
-                      loading="lazy" scrolling="no" frameborder="0" allowfullscreen="true"
-                      allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+            <div class="fb-thumb fb-thumb--portrait">
+              <iframe class="fb-poster" src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2F61583002562345%2Fvideos%2F3859713074163703%2F&show_text=false&width=360"
+                      title="Preview: cardiac treatment testimonial" tabindex="-1" aria-hidden="true" loading="lazy" scrolling="no" frameborder="0"></iframe>
+              <button class="video-play" type="button"
+                      data-video-url="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2F61583002562345%2Fvideos%2F3859713074163703%2F&show_text=false"
+                      data-video-ratio="9x16" data-bs-toggle="modal" data-bs-target="#videoModal"
+                      aria-label="Play video: Lemeki's heart treatment testimonial">
+                <i class="fa-solid fa-play" aria-hidden="true"></i>
+              </button>
             </div>
             <div class="testimonial-person">
               <span class="testimonial-tag"><i class="fa-solid fa-heart-pulse" aria-hidden="true"></i>Cardiac</span>
@@ -1098,13 +1103,17 @@
             </div>
           </article>
 
-          <!-- 2. Bone Marrow Transplant reel — https://www.facebook.com/share/v/1EWfR2fX2w/ -->
+          <!-- 2. Bone Marrow Transplant reel — https://www.facebook.com/share/v/1EWfR2fX2w/ (vertical reel) -->
           <article class="testimonial-card testimonial-fb slider-item">
-            <div class="fb-video">
-              <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2F61583002562345%2Fvideos%2F1549026030249796%2F&show_text=false&width=360&t=0"
-                      title="Bone marrow transplant coordination with GlobalCare Health"
-                      loading="lazy" scrolling="no" frameborder="0" allowfullscreen="true"
-                      allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+            <div class="fb-thumb fb-thumb--portrait">
+              <iframe class="fb-poster" src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2F61583002562345%2Fvideos%2F1549026030249796%2F&show_text=false&width=360"
+                      title="Preview: bone marrow transplant video" tabindex="-1" aria-hidden="true" loading="lazy" scrolling="no" frameborder="0"></iframe>
+              <button class="video-play" type="button"
+                      data-video-url="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2F61583002562345%2Fvideos%2F1549026030249796%2F&show_text=false"
+                      data-video-ratio="9x16" data-bs-toggle="modal" data-bs-target="#videoModal"
+                      aria-label="Play video: bone marrow transplant coordination">
+                <i class="fa-solid fa-play" aria-hidden="true"></i>
+              </button>
             </div>
             <div class="testimonial-person">
               <span class="testimonial-tag"><i class="fa-solid fa-droplet" aria-hidden="true"></i>BMT</span>
@@ -1115,13 +1124,17 @@
             </div>
           </article>
 
-          <!-- 3. Cervical cancer testimonial — https://www.facebook.com/share/v/1HAYSnP4uB/ -->
+          <!-- 3. Cervical cancer testimonial — https://www.facebook.com/share/v/1HAYSnP4uB/ (landscape) -->
           <article class="testimonial-card testimonial-fb slider-item">
-            <div class="fb-video">
-              <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2F61583002562345%2Fvideos%2F1529678122062408%2F&show_text=false&width=360&t=0"
-                      title="Cervical cancer patient testimonial — Joyce, Fiji to India"
-                      loading="lazy" scrolling="no" frameborder="0" allowfullscreen="true"
-                      allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+            <div class="fb-thumb fb-thumb--landscape">
+              <iframe class="fb-poster" src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2F61583002562345%2Fvideos%2F1529678122062408%2F&show_text=false&width=560"
+                      title="Preview: cervical cancer treatment testimonial" tabindex="-1" aria-hidden="true" loading="lazy" scrolling="no" frameborder="0"></iframe>
+              <button class="video-play" type="button"
+                      data-video-url="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2F61583002562345%2Fvideos%2F1529678122062408%2F&show_text=false"
+                      data-video-ratio="16x9" data-bs-toggle="modal" data-bs-target="#videoModal"
+                      aria-label="Play video: Joyce's cervical cancer treatment testimonial">
+                <i class="fa-solid fa-play" aria-hidden="true"></i>
+              </button>
             </div>
             <div class="testimonial-person">
               <span class="testimonial-tag"><i class="fa-solid fa-ribbon" aria-hidden="true"></i>Oncology</span>
@@ -1287,6 +1300,20 @@
               <p class="lead-modal-privacy"><i class="fa-solid fa-lock" aria-hidden="true"></i> Your information stays confidential.</p>
             </form>
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Video testimonial modal (Facebook embed; ratio class set by script.js from data-video-ratio) -->
+  <div class="modal fade video-modal" id="videoModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content video-modal-content">
+        <button type="button" class="lead-modal-close" data-bs-dismiss="modal" aria-label="Close">
+          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
+        <div class="ratio ratio-16x9" id="videoRatio">
+          <iframe id="videoFrame" src="" title="Patient video testimonial" scrolling="no" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
       </div>
     </div>
