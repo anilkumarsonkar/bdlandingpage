@@ -1071,64 +1071,67 @@
       <div class="section-head text-center" data-animate="fade-up">
         <span class="eyebrow">Testimonials</span>
         <h2 class="section-title">Patients Who Trusted Us</h2>
-        <p class="section-lead">Real experiences from Bangladeshi families we have supported on their cancer treatment journey to India.</p>
+        <p class="section-lead">Real patient stories from families GlobalCare Health has supported on their treatment journey to India.</p>
       </div>
 
-      <!-- [Replace with verified data] Placeholder testimonials — swap with real, consented patient stories before publishing.
-           Keep quotes about the experience (support, clarity, communication), not clinical outcomes.
-           Single-row slider (same component as the hospital slider). To add: copy one <article class="testimonial-card slider-item"> block. -->
-      <div class="hospital-slider testimonial-slider" id="testimonialSlider" data-animate="fade-up" data-autoplay="5000">
+      <!-- Real patient video testimonials from GlobalCare Health's Facebook page (official Facebook video embeds).
+           Single-row slider (same component as the hospital slider). To add: copy one <article class="testimonial-card testimonial-fb slider-item"> block
+           and change the href= inside the iframe src to the full Facebook video URL (URL-encoded). -->
+      <div class="hospital-slider testimonial-slider" id="testimonialSlider" data-animate="fade-up" data-autoplay="0">
         <button class="slider-btn slider-prev" type="button" aria-label="Previous testimonials"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
-        <div class="slider-track" tabindex="0" aria-label="Patient testimonials, scroll horizontally">
-          <article class="testimonial-card slider-item">
-            <div class="testimonial-quote"><i class="fa-solid fa-quote-left" aria-hidden="true"></i></div>
-            <p class="testimonial-text">The coordinator explained everything in Bengali and we never felt lost. My father's reports were reviewed before we travelled, so we knew what to expect in India.</p>
+        <div class="slider-track" tabindex="0" aria-label="Patient video testimonials, scroll horizontally">
+
+          <!-- 1. Cardiac testimonial — https://www.facebook.com/share/v/1dcYktvNaz/ -->
+          <article class="testimonial-card testimonial-fb slider-item">
+            <div class="fb-video">
+              <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2F61583002562345%2Fvideos%2F3859713074163703%2F&show_text=false&width=360&t=0"
+                      title="Cardiac treatment patient testimonial — Lemeki's mother, Fiji to India"
+                      loading="lazy" scrolling="no" frameborder="0" allowfullscreen="true"
+                      allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+            </div>
             <div class="testimonial-person">
-              <img src="https://randomuser.me/api/portraits/men/45.jpg" onerror="this.onerror=null;this.src='images/patient-1.svg'" alt="Rahim Ahmed" loading="lazy" />
+              <span class="testimonial-tag"><i class="fa-solid fa-heart-pulse" aria-hidden="true"></i>Cardiac</span>
               <div>
-                <strong>Rahim Ahmed <span class="flag" title="Bangladesh">🇧🇩</span></strong>
-                <span>Dhaka · Cancer Treatment · Apollo Hospitals</span>
+                <strong>Lemeki's Heart Treatment</strong>
+                <span>Mother's testimonial · Fiji to India · Fortis Hospital</span>
               </div>
             </div>
           </article>
-          <article class="testimonial-card slider-item">
-            <div class="testimonial-quote"><i class="fa-solid fa-quote-left" aria-hidden="true"></i></div>
-            <p class="testimonial-text">From the first call to my discharge, everything was arranged for me — the specialist, the visa letter and the travel. The doctors and hospital were excellent.</p>
+
+          <!-- 2. Bone Marrow Transplant reel — https://www.facebook.com/share/v/1EWfR2fX2w/ -->
+          <article class="testimonial-card testimonial-fb slider-item">
+            <div class="fb-video">
+              <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2F61583002562345%2Fvideos%2F1549026030249796%2F&show_text=false&width=360&t=0"
+                      title="Bone marrow transplant coordination with GlobalCare Health"
+                      loading="lazy" scrolling="no" frameborder="0" allowfullscreen="true"
+                      allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+            </div>
             <div class="testimonial-person">
-              <img src="https://randomuser.me/api/portraits/women/54.jpg" onerror="this.onerror=null;this.src='images/patient-2.svg'" alt="Fatima Begum" loading="lazy" />
+              <span class="testimonial-tag"><i class="fa-solid fa-droplet" aria-hidden="true"></i>BMT</span>
               <div>
-                <strong>Fatima Begum <span class="flag" title="Bangladesh">🇧🇩</span></strong>
-                <span>Chattogram · Cancer Treatment · Max Healthcare</span>
+                <strong>Bone Marrow Transplant</strong>
+                <span>How GlobalCare coordinates BMT cases in India</span>
               </div>
             </div>
           </article>
-          <!-- Video testimonial support -->
-          <article class="testimonial-card testimonial-video slider-item">
-            <div class="video-thumb">
-              <!-- [CMS Field] Replace poster + embed URL with a verified video testimonial -->
-              <img src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?auto=format&fit=crop&w=600&q=70" onerror="this.onerror=null;this.src='images/video-testimonial.svg'" alt="Video testimonial placeholder" loading="lazy" />
-              <button class="video-play" type="button" data-video-url="https://www.youtube.com/embed/aqz-KE-bpKQ" data-bs-toggle="modal" data-bs-target="#videoModal" aria-label="Play video testimonial">
-                <i class="fa-solid fa-play" aria-hidden="true"></i>
-              </button>
+
+          <!-- 3. Cervical cancer testimonial — https://www.facebook.com/share/v/1HAYSnP4uB/ -->
+          <article class="testimonial-card testimonial-fb slider-item">
+            <div class="fb-video">
+              <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2F61583002562345%2Fvideos%2F1529678122062408%2F&show_text=false&width=360&t=0"
+                      title="Cervical cancer patient testimonial — Joyce, Fiji to India"
+                      loading="lazy" scrolling="no" frameborder="0" allowfullscreen="true"
+                      allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
             </div>
             <div class="testimonial-person">
+              <span class="testimonial-tag"><i class="fa-solid fa-ribbon" aria-hidden="true"></i>Oncology</span>
               <div>
-                <strong>Video Testimonial <span class="flag" title="Bangladesh">🇧🇩</span></strong>
-                <span>Kamal Hossain · Cancer Treatment</span>
+                <strong>Joyce's Cervical Cancer Treatment</strong>
+                <span>Patient testimonial · Fiji to India · Max Hospital, Dwarka</span>
               </div>
             </div>
           </article>
-          <article class="testimonial-card slider-item">
-            <div class="testimonial-quote"><i class="fa-solid fa-quote-left" aria-hidden="true"></i></div>
-            <p class="testimonial-text">We contacted GlobalCare on behalf of my mother. They told us clearly which reports to send, what the indicative cost would be, and what the next step was — no pressure at any point.</p>
-            <div class="testimonial-person">
-              <img src="https://randomuser.me/api/portraits/men/32.jpg" onerror="this.onerror=null;this.src='images/patient-1.svg'" alt="Sajid Karim" loading="lazy" />
-              <div>
-                <strong>Sajid Karim <span class="flag" title="Bangladesh">🇧🇩</span></strong>
-                <span>Sylhet · Cancer Treatment · Artemis Hospitals</span>
-              </div>
-            </div>
-          </article>
+
         </div>
         <button class="slider-btn slider-next" type="button" aria-label="Next testimonials"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
         <div class="slider-dots" aria-hidden="true"></div>
@@ -1284,20 +1287,6 @@
               <p class="lead-modal-privacy"><i class="fa-solid fa-lock" aria-hidden="true"></i> Your information stays confidential.</p>
             </form>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Video testimonial modal -->
-  <div class="modal fade" id="videoModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-      <div class="modal-content video-modal-content">
-        <button type="button" class="lead-modal-close" data-bs-dismiss="modal" aria-label="Close">
-          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
-        </button>
-        <div class="ratio ratio-16x9">
-          <iframe id="videoFrame" src="" title="Patient video testimonial" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
       </div>
     </div>

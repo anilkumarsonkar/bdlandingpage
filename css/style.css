@@ -787,6 +787,23 @@ a { text-decoration: none; color: var(--gc-primary); }
 .testimonial-slider .testimonial-text { flex: 1; }
 .testimonial-slider .slider-btn { top: 50%; }
 
+/* Facebook video testimonial cards (reels are vertical, 9:16) — phone-sized cards, centered when they all fit */
+.testimonial-slider { --per-view: 4; }
+.testimonial-slider .slider-track { justify-content: safe center; }
+.testimonial-fb { padding: 12px 12px 18px !important; }
+.fb-video { position: relative; width: 100%; aspect-ratio: 9 / 16; border-radius: var(--gc-radius-sm); overflow: hidden; background: #0b1b2b; margin-bottom: 14px; }
+.fb-video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; }
+.testimonial-fb .testimonial-person { padding: 0 6px; align-items: flex-start; }
+.testimonial-tag {
+  flex: 0 0 auto; display: inline-flex; align-items: center; gap: 6px; margin-top: 2px;
+  background: var(--gc-bg-soft); color: var(--gchDarkBlue); font-family: var(--gc-font-head); font-weight: 700; font-size: .72rem;
+  padding: 5px 10px; border-radius: 999px; letter-spacing: .02em; white-space: nowrap;
+}
+.testimonial-tag i { color: var(--gc-red); }
+.testimonial-fb .testimonial-person strong { font-size: .95rem; margin-bottom: 2px; }
+.testimonial-fb .testimonial-person span:not(.testimonial-tag) { font-size: .8rem; line-height: 1.4; }
+@media (max-width: 575.98px) { .testimonial-slider { --per-view: 1.1; } }
+
 @media (max-width: 1199.98px) { .hospital-slider { --per-view: 3; } }
 @media (max-width: 991.98px)  { .hospital-slider { --per-view: 2; } .slider-prev { left: -8px; } .slider-next { right: -8px; } }
 @media (max-width: 575.98px)  { .hospital-slider { --per-view: 1.15; --slide-gap: 14px; } .slider-btn { width: 38px; height: 38px; } .slider-prev { left: -6px; } .slider-next { right: -6px; } }
