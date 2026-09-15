@@ -825,6 +825,95 @@ a { text-decoration: none; color: var(--gc-primary); }
 @media (max-width: 991.98px)  { .hospital-slider { --per-view: 2; } .slider-prev { left: -8px; } .slider-next { right: -8px; } }
 @media (max-width: 575.98px)  { .hospital-slider { --per-view: 1.15; --slide-gap: 14px; } .slider-btn { width: 38px; height: 38px; } .slider-prev { left: -6px; } .slider-next { right: -6px; } }
 
+/* ============ 19. SPECIALTY VARIANTS (oncology | bmt | cardiac) ============ */
+/* Content blocks: only the active variant's blocks are rendered. */
+[data-specialty="oncology"] .v-bmt, [data-specialty="oncology"] .v-cardiac,
+[data-specialty="bmt"] .v-oncology, [data-specialty="bmt"] .v-cardiac,
+[data-specialty="cardiac"] .v-oncology, [data-specialty="cardiac"] .v-bmt { display: none !important; }
+/* Hospital cards: show only hospitals tagged for the active specialty */
+[data-specialty="oncology"] .hospital-card:not(.h-oncology),
+[data-specialty="bmt"] .hospital-card:not(.h-bmt),
+[data-specialty="cardiac"] .hospital-card:not(.h-cardiac) { display: none !important; }
+/* Stories: put the matching specialty's story first */
+[data-specialty="oncology"] .t-oncology, [data-specialty="bmt"] .t-bmt, [data-specialty="cardiac"] .t-cardiac { order: -1; }
+
+/* Hero additions */
+.hero-note { font-size: .9rem; color: var(--gc-secondary); margin: 14px 0 0; line-height: 1.5; }
+.hero-note i { color: var(--gc-primary); }
+.hero-numbers { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 18px 0 14px; max-width: 560px; }
+.hero-numbers li { background: rgba(255,255,255,.6); border: 1px solid rgba(255,255,255,.8); border-radius: 12px; padding: 10px 8px; text-align: center; }
+.hero-numbers strong { display: block; font-family: var(--gc-font-head); font-weight: 800; font-size: 1.45rem; line-height: 1.1; background: var(--gc-btn-gradient); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.hero-numbers span { display: block; font-size: .74rem; color: var(--gc-secondary); font-weight: 600; margin-top: 2px; }
+.hero-banner .hero-tiles { max-width: 560px; }
+.hero-banner .hero-content { padding: 24px 0 40px; }
+
+/* Hospital name strip under the hero (use logos here when approved) */
+.hospital-strip { background: #fff; border-bottom: 1px solid var(--gc-line); padding: 14px 0; }
+.hospital-strip .container { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; }
+.hospital-strip-label { font-family: var(--gc-font-head); font-weight: 700; font-size: .78rem; text-transform: uppercase; letter-spacing: .08em; color: var(--gc-muted); margin-right: 6px; }
+.hospital-strip ul { display: flex; flex-wrap: wrap; gap: 6px 10px; margin: 0; }
+.hospital-strip li { font-family: var(--gc-font-head); font-weight: 700; font-size: .86rem; color: var(--gc-secondary); padding: 6px 12px; border: 1px solid var(--gc-line); border-radius: 999px; background: var(--gc-bg-alt); white-space: nowrap; }
+
+/* Two-step form */
+.hero-form-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.form-step-badge { flex: 0 0 auto; font-family: var(--gc-font-head); font-weight: 700; font-size: .72rem; color: var(--gchDarkBlue); background: var(--gc-bg-soft); border-radius: 999px; padding: 4px 10px; white-space: nowrap; }
+.hero-form-card .form-label { font-size: .8rem; font-weight: 600; color: var(--gc-secondary); margin-bottom: 3px; }
+.hero-form-card .form-check-label { font-size: .84rem; color: var(--gc-body); }
+.hero-form-card .form-check-input:checked { background-color: var(--gchLiteBlue); border-color: var(--gchLiteBlue); }
+.hero-form-card .btn-ghost-cta { margin-left: 0; padding: 12px 16px; border-radius: 8px; }
+.hero-form-card .is-invalid ~ .invalid-feedback, .hero-form-card .input-group .is-invalid ~ .invalid-feedback { display: block; }
+.hero-form-privacy a { color: var(--gchDarkBlue); text-decoration: underline; }
+.form-thanks { text-align: center; padding: 10px 4px 6px; }
+.form-thanks .thanks-ico { display: inline-flex; width: 64px; height: 64px; border-radius: 50%; background: var(--gc-btn-gradient); color: #fff; font-size: 1.8rem; align-items: center; justify-content: center; margin-bottom: 14px; }
+.form-thanks h3 { font-size: 1.2rem; margin-bottom: 8px; }
+.form-thanks p { color: var(--gc-body); font-size: .95rem; }
+
+/* Language toggle */
+.lang-toggle { display: inline-flex; align-items: center; border: 1px solid var(--gc-line); border-radius: 999px; padding: 3px; background: #fff; }
+.lang-btn { border: 0; background: transparent; font-family: var(--gc-font-head); font-weight: 700; font-size: .78rem; color: var(--gc-secondary); padding: 5px 10px; border-radius: 999px; cursor: pointer; white-space: nowrap; }
+.lang-btn.active { background: var(--gc-btn-gradient); color: #fff; }
+/* Hide Google Translate's banner/tooltips; keep the page layout stable */
+.goog-te-banner-frame, .skiptranslate iframe, #goog-gt-tt, .goog-te-balloon-frame { display: none !important; }
+body { top: 0 !important; }
+font[style] { background: transparent !important; box-shadow: none !important; }
+
+/* Hospital cards without photos */
+.hospital-head { display: flex; align-items: center; gap: 12px; padding: 18px 18px 6px; }
+.hospital-ico { flex: 0 0 auto; width: 46px; height: 46px; border-radius: 12px; background: var(--gc-btn-gradient); color: #fff; display: inline-flex; align-items: center; justify-content: center; font-size: 1.2rem; }
+.hospital-head h3 { font-size: 1.05rem; margin: 0 0 2px; line-height: 1.25; }
+.hospital-head .hospital-city { margin: 0; }
+.hospital-badges { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 10px; min-height: 0; }
+.hospital-badges:empty { display: none; }
+.hospital-badges span { font-family: var(--gc-font-head); font-weight: 700; font-size: .7rem; color: var(--gchDarkBlue); background: var(--gc-bg-soft); border-radius: 6px; padding: 3px 8px; letter-spacing: .04em; }
+.slider-item .hospital-body { padding-top: 6px; }
+
+/* Cases section: helpful reports box */
+.reports-box { max-width: 860px; margin: 8px auto 0; background: #fff; border: 1px solid var(--gc-line); border-radius: var(--gc-radius-sm); padding: 16px 20px; color: var(--gc-body); font-size: .95rem; line-height: 1.55; }
+.reports-box strong { color: var(--gc-ink); }
+.reports-box strong i { color: var(--gc-primary); }
+
+/* Cost: three lines */
+.cost-lines { display: flex; flex-direction: column; gap: 14px; }
+.cost-line { display: flex; gap: 14px; align-items: flex-start; }
+.cost-line-ico { flex: 0 0 auto; width: 40px; height: 40px; border-radius: 12px; background: var(--gc-btn-gradient); color: #fff; display: inline-flex; align-items: center; justify-content: center; }
+.cost-line strong { display: block; font-family: var(--gc-font-head); color: var(--gc-ink); margin-bottom: 2px; }
+.cost-line p { margin: 0; color: var(--gc-body); font-size: .95rem; line-height: 1.55; }
+
+/* Fine print (hedges live here, not in headlines) */
+.fine-print { font-size: .8rem; color: var(--gc-muted); margin: 22px 0 0; line-height: 1.5; }
+
+@media (max-width: 991.98px) {
+  /* Keep the form reachable on phones: chips are covered by the sections below */
+  .hero-banner .hero-tiles { display: none; }
+  .hero-banner .hero-content { padding-bottom: 8px; }
+}
+@media (max-width: 767.98px) {
+  .hero-numbers { grid-template-columns: repeat(2, 1fr); }
+  .hero-form-head { flex-direction: column; align-items: flex-start; gap: 6px; }
+  .cost-card .cost-line { text-align: left; }
+  .cost-card .text-lg-end .btn { width: 100%; }
+}
+
 /* Navy appointment strip under the banner */
 .appointment-strip { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px 28px; background: var(--gc-secondary); color: #fff; border-radius: 10px; padding: 14px 24px; margin-top: 22px; box-shadow: var(--gc-shadow-sm); }
 .appointment-strip p { font-family: var(--gc-font-head); font-size: 1.15rem; color: #fff; }
