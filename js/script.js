@@ -27,14 +27,16 @@
       wa: "Hello GlobalCare Health, I'm contacting you from Bangladesh about cancer treatment in India for [myself / a family member]. I'd like to share the medical reports and understand the next steps."
     },
     bmt: {
-      cta: 'Share BMT Reports',
+      cta: 'Get My Case Reviewed',
+      ctaShort: 'Get My Case Reviewed',
       formTitle: 'Share Your BMT Reports',
       title: 'Bone Marrow Transplant in India for Bangladesh Patients | GlobalCare Health',
       description: 'Bone marrow transplant (BMT) and blood cancer treatment in India for patients from Bangladesh. Share your reports for a haematology/BMT team review, an indicative BMT cost in India and next steps — before you travel.',
       wa: "Hello GlobalCare Health, I'm contacting you from Bangladesh about a bone marrow transplant / blood disorder treatment in India for [myself / a family member]. I'd like to share the reports and understand the next steps."
     },
     cardiac: {
-      cta: 'Share Cardiac Reports',
+      cta: 'Get My Case Reviewed',
+      ctaShort: 'Get My Case Reviewed',
       formTitle: 'Share Your Cardiac Reports',
       title: 'Heart Surgery in India for Bangladesh Patients | GlobalCare Health',
       description: 'Heart surgery in India for patients from Bangladesh — bypass (CABG), valve replacement and complex cardiac procedures. Share your angiogram and echo for a cardiac surgeon review, an indicative cost and next steps — before you travel.',
