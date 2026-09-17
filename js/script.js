@@ -18,7 +18,8 @@
   var SPECIALTY = document.documentElement.getAttribute('data-specialty') || 'oncology';
   var VARIANTS = {
     oncology: {
-      cta: 'Share Medical Reports',
+      cta: 'Get My Case Reviewed',
+      ctaShort: 'Get My Case Reviewed',
       formTitle: 'Get Your Cancer Case Reviewed',
       formSub: 'Share a few details and our patient coordination team will contact you on WhatsApp within 24 hours.',
       title: 'Cancer Treatment in India for Bangladesh Patients | GlobalCare',
@@ -67,6 +68,7 @@
       if (icon) { el.appendChild(icon); el.appendChild(document.createTextNode(V.cta)); }
       else { el.textContent = V.cta; }
     });
+    if (V.ctaShort) { document.querySelectorAll('.js-cta-short').forEach(function (el) { el.textContent = V.ctaShort; }); }
     document.querySelectorAll('.js-form-title').forEach(function (el) { el.textContent = V.formTitle; });
     if (V.formSub) { document.querySelectorAll('.js-form-sub').forEach(function (el) { el.textContent = V.formSub; }); }
     document.title = V.title;
