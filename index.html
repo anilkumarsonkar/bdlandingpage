@@ -242,8 +242,10 @@
             <p class="hero-form-sub js-form-sub">Tell us about the case. A Bengali-speaking care companion replies within 24 hours on WhatsApp.</p>
 
             <!-- NOTE: connect to the CRM / lead endpoint (see script.js → submitLead). No budget question by design. -->
-            <form id="caseForm" action="#" method="post" enctype="multipart/form-data" novalidate>
+            <form id="caseForm" action="lead.php" method="post" enctype="multipart/form-data" data-endpoint="lead.php" novalidate>
               <input type="hidden" name="specialty_variant" id="specialtyVariant" value="oncology" />
+              <!-- Honeypot (spam bots fill it; real visitors never see it) -->
+              <div class="hp-field" aria-hidden="true"><label for="website">Website</label><input type="text" id="website" name="website" tabindex="-1" autocomplete="off" /></div>
 
               <!-- ===== STEP 1: about the case (no typing) ===== -->
               <fieldset class="form-step" data-step="1">

@@ -220,12 +220,20 @@
       }
       if (backBtn) { backBtn.addEventListener('click', function () { showStep(1); }); }
 
-      /* submitLead: send the case to the CRM / lead endpoint.
-         TODO (launch): replace the resolved Promise with a real request, e.g.
-           return fetch('https://4rx.co/webhooks/website_lead.php', { method: 'POST', body: new FormData(form) });
-         Attachments (reports[]) are included automatically via FormData. */
+      /* submitLead: POST the case (incl. reports[] files) to lead.php, which emails
+         the lead to GlobalCare (enquiry@globalcarehealth.com) and keeps a backup copy. */
+      var LEAD_ENDPOINT = form.getAttribute('data-endpoint') || 'lead.php';
       var submitLead = function (formEl) {
-        return Promise.resolve({ ok: true });
+        var fd = new FormData(formEl);
+        return fetch(LEAD_ENDPOINT, { method: 'POST', body: fd, credentials: 'same-origin' })
+          .then(function (r) { return r.json().catch(function () { return { ok: r.ok }; }).then(function (j) { return { status: r.status, body: j }; }); })
+          .then(function (res) {
+            if (!res.body || res.body.ok !== true) {
+              var err = new Error((res.body && res.body.error) || 'Submission failed');
+              throw err;
+            }
+            return res.body;
+          });
       };
 
       form.addEventListener('submit', function (e) {
@@ -246,9 +254,9 @@
           if (thanks) { thanks.hidden = false; }
           var card = document.getElementById('share-reports');
           if (card) { card.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
-        }).catch(function () {
+        }).catch(function (err) {
           if (submitBtn) { submitBtn.disabled = false; }
-          alert('Sorry, the form could not be sent. Please try again or message us on WhatsApp.');
+          alert((err && err.message ? err.message + ' ' : '') + 'Please try again or message us on WhatsApp.');
         });
       });
     }

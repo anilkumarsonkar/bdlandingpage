@@ -1,0 +1,29 @@
+# GlobalCare Bangladesh landing page — Apache rules (served at /bangladesh/)
+Options -Indexes
+DirectoryIndex index.html
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /bangladesh/
+  # Specialty entry URLs → one template with ?s=
+  RewriteRule ^oncology/?$ index.html?s=oncology [L,QSA]
+  RewriteRule ^bmt/?$      index.html?s=bmt      [L,QSA]
+  RewriteRule ^cardiac/?$  index.html?s=cardiac  [L,QSA]
+</IfModule>
+
+# Never serve dotfiles or repo/config files
+<FilesMatch "^(\.|README|vercel\.json)">
+  Require all denied
+</FilesMatch>
+
+# Upload limits for lead.php live in .user.ini (works with the cPanel ea-php handler)
+
+# Cache static assets
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/webp "access plus 30 days"
+  ExpiresByType image/png "access plus 30 days"
+  ExpiresByType image/svg+xml "access plus 30 days"
+  ExpiresByType text/css "access plus 7 days"
+  ExpiresByType application/javascript "access plus 7 days"
+</IfModule>

@@ -918,6 +918,9 @@ font[style] { background: transparent !important; box-shadow: none !important; }
 .bd-bullets li { margin-bottom: 12px; }
 .final-cta-small { color: rgba(255,255,255,.7); font-size: .82rem; margin: 22px auto 0; max-width: 560px; }
 
+/* Honeypot: off-screen, not display:none (some bots skip hidden inputs) */
+.hp-field { position: absolute; left: -9999px; top: -9999px; width: 1px; height: 1px; overflow: hidden; opacity: 0; }
+
 /* Fine print (hedges live here, not in headlines) */
 .fine-print { font-size: .8rem; color: var(--gc-muted); margin: 22px 0 0; line-height: 1.5; }
 

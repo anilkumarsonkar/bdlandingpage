@@ -169,3 +169,13 @@ match the exact Global Care Health brand kit and the whole page updates.
 
 _Built as a static, framework-free landing page so it is easy to host anywhere
 (Netlify, Vercel, cPanel, S3, or inside your existing site)._
+
+## Live deployment (4rx.co)
+
+- Live URL: https://4rx.co/bangladesh/ (BMT: /bangladesh/bmt · Cardiac: /bangladesh/cardiac)
+- Server path: `/home/rx/public_html/bangladesh/` on 161.97.108.25 (cPanel user `rx`)
+- Form endpoint: `lead.php` → emails each case (with uploaded reports) to **enquiry@globalcarehealth.com**
+  from `leads@4rx.co`, and keeps a backup in `/home/rx/storage/bangladesh_leads/` (JSON lines + files).
+- Redeploy: upload the folder contents (excluding `.git`, `README.md`, `vercel.json`) to the server path, then
+  `chown -R rx:rx /home/rx/public_html/bangladesh`.
+- Change the recipient: edit `LEAD_TO` (and optional `LEAD_CC`) at the top of `lead.php`.
