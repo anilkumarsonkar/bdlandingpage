@@ -19,9 +19,10 @@
   var VARIANTS = {
     oncology: {
       cta: 'Share Medical Reports',
-      formTitle: 'Share Your Medical Reports',
-      title: 'Cancer Treatment in India for Bangladesh Patients | GlobalCare Health',
-      description: 'Cancer treatment in India for patients from Bangladesh. Share your medical reports for a specialist cancer hospital review, an indicative cancer treatment cost in India and next steps — before you travel.',
+      formTitle: 'Get Your Cancer Case Reviewed',
+      formSub: 'Share a few details and our patient coordination team will contact you on WhatsApp within 24 hours.',
+      title: 'Cancer Treatment in India for Bangladesh Patients | GlobalCare',
+      description: 'Explore cancer treatment options in India for patients from Bangladesh. Get specialist and hospital coordination, indicative costs, Bengali support, visa and travel guidance.',
       wa: "Hello GlobalCare Health, I'm contacting you from Bangladesh about cancer treatment in India for [myself / a family member]. I'd like to share the medical reports and understand the next steps."
     },
     bmt: {
@@ -44,6 +45,21 @@
 
   document.addEventListener('DOMContentLoaded', function () {
 
+    // SEO: remove the other variants' content blocks from the DOM (CSS already hides them),
+    // so headings and copy contain only this variant's text. Form fields are kept so the
+    // specialty selector inside the form can still switch.
+    (function pruneVariants() {
+      var keep = { oncology: ['v-oncology'], bmt: ['v-bmt', 'v-not-oncology'], cardiac: ['v-cardiac', 'v-not-oncology'] }[SPECIALTY] || ['v-oncology'];
+      document.querySelectorAll('.v-oncology, .v-bmt, .v-cardiac, .v-not-oncology').forEach(function (el) {
+        if (el.closest('#caseForm')) { return; }
+        var active = keep.some(function (c) { return el.classList.contains(c); });
+        if (!active && el.parentNode) { el.parentNode.removeChild(el); }
+      });
+      document.querySelectorAll('.hospital-card').forEach(function (card) {
+        if (!card.classList.contains('h-' + SPECIALTY) && card.parentNode) { card.parentNode.removeChild(card); }
+      });
+    })();
+
     // Labels, titles, meta
     document.querySelectorAll('.js-cta-label').forEach(function (el) {
       var icon = el.querySelector('i');
@@ -52,6 +68,7 @@
       else { el.textContent = V.cta; }
     });
     document.querySelectorAll('.js-form-title').forEach(function (el) { el.textContent = V.formTitle; });
+    if (V.formSub) { document.querySelectorAll('.js-form-sub').forEach(function (el) { el.textContent = V.formSub; }); }
     document.title = V.title;
     var metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) { metaDesc.setAttribute('content', V.description); }
