@@ -920,8 +920,8 @@ font[style] { background: transparent !important; box-shadow: none !important; }
 
 /* Hero chips: keep the icon centred in its circle.
    (".hero-tile span {display:block}" was overriding the flex centring on the icon span.) */
-.hero-tile .hero-tile-ico { display: inline-flex; align-items: center; justify-content: center; line-height: 1; }
-.hero-tile .hero-tile-ico i { display: block; line-height: 1; }
+.hero-tile .hero-tile-ico { display: inline-flex; align-items: center; justify-content: center; line-height: 1; color: #fff; font-size: .95rem; }
+.hero-tile .hero-tile-ico i { display: block; line-height: 1; color: #fff; }
 .hero-tile { align-items: center; }
 
 /* Hospitals: "more hospitals" note */
