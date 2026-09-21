@@ -217,8 +217,8 @@
           <ul class="hero-numbers list-unstyled">
             <li><strong>128+</strong><span>Countries served</span></li>
             <li><strong>150+</strong><span>Hospital network</span></li>
-            <li><strong>7,500+</strong><span>Treatment plans</span></li>
-            <li><strong>3,100+</strong><span>Patients facilitated</span></li>
+            <li><strong>7,500+</strong><span>Treatment plans shared monthly</span></li>
+            <li><strong>3,100+</strong><span>Patients facilitated monthly</span></li>
           </ul>
 
           <!-- Service chips with real icons -->
@@ -227,7 +227,7 @@
             <div class="hero-tile"><span class="hero-tile-ico"><i class="fa-solid fa-user-doctor" aria-hidden="true"></i></span><div><strong>Specialist &amp; Hospital Matching</strong><span>Reports matched to the right hospital</span></div></div>
             <div class="hero-tile"><span class="hero-tile-ico"><i class="fa-solid fa-file-invoice" aria-hidden="true"></i></span><div><strong>Indicative Treatment Costs</strong><span>Written estimate for your case</span></div></div>
             <div class="hero-tile"><span class="hero-tile-ico"><i class="fa-solid fa-language" aria-hidden="true"></i></span><div><strong>Bengali-Speaking Support</strong><span>One care companion at every step</span></div></div>
-            <div class="hero-tile"><span class="hero-tile-ico"><i class="fa-solid fa-passport" aria-hidden="true"></i></span><div><strong>Medical Visa &amp; Travel Guidance</strong><span>VIL, medical visa, arrival</span></div></div>
+            <div class="hero-tile"><span class="hero-tile-ico"><i class="fa-solid fa-passport" aria-hidden="true"></i></span><div><strong>Medical Visa &amp; Travel Guidance</strong><span>Visa Invitation Letter (VIL), medical visa, arrival</span></div></div>
             <div class="hero-tile hero-tile--wide"><span class="hero-tile-ico"><i class="fa-solid fa-hands-holding-child" aria-hidden="true"></i></span><div><strong>End-to-End Patient Coordination</strong><span>From first message to post-treatment follow-up</span></div></div>
           </div>
         </div>
@@ -437,6 +437,41 @@
   </section>
 
   <!-- ============================================================
+       PATIENT PHOTO STORY (under Why GlobalCare) — builds a visual connection.
+       HIDDEN until the consented patient photo is supplied:
+         1. save the photo as images/patient-story.jpg (landscape or portrait, min 900px wide)
+         2. fill the name / city / diagnosis / hospital / quote below
+         3. remove the `hidden` attribute on the <section>
+       ============================================================ -->
+  <section class="section section-alt" id="patient-photo-story" hidden>
+    <div class="container">
+      <div class="section-head text-center" data-animate="fade-up">
+        <span class="eyebrow">Patient Story</span>
+        <h2 class="section-title">A Family We Have Supported</h2>
+      </div>
+      <div class="photo-story" data-animate="fade-up">
+        <div class="row g-0 align-items-stretch">
+          <div class="col-md-5">
+            <img class="photo-story-img" src="images/patient-story.jpg" alt="[PATIENT NAME] with the GlobalCare Health team in India" loading="lazy" />
+          </div>
+          <div class="col-md-7">
+            <div class="photo-story-body">
+              <span class="photo-story-quote-ico"><i class="fa-solid fa-quote-left" aria-hidden="true"></i></span>
+              <p class="photo-story-quote">[PATIENT / FAMILY QUOTE — in their own words, shared with consent]</p>
+              <div class="photo-story-name">[PATIENT NAME] <span class="flag" title="Bangladesh">🇧🇩</span></div>
+              <div class="photo-story-meta">[CITY, BANGLADESH] · [DIAGNOSIS] · Treated at [HOSPITAL]</div>
+              <ul class="photo-story-journey">
+                <li>Reports reviewed</li><li>Specialist consultation</li><li>Hospital admission</li><li>Treatment coordination</li>
+              </ul>
+              <a class="btn btn-primary-cta js-cta-label" href="#share-reports">Get My Case Reviewed</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
        SECTION 2 — WHO THIS SERVICE IS FOR (per specialty)
        ============================================================ -->
   <section class="section" id="who-for">
@@ -512,15 +547,17 @@
       <div class="section-head text-center" data-animate="fade-up">
         <span class="eyebrow">How It Works</span>
         <h2 class="section-title">Your Path to Treatment in India, Step by Step</h2>
-        <p class="section-lead">A clear process from your first message to arriving for treatment.</p>
+        <p class="section-lead">A clear process from your first message to treatment and post-operation care.</p>
       </div>
       <div class="timeline">
-        <div class="timeline-item" data-animate="fade-up"><span class="timeline-num">01</span><div class="timeline-content"><span class="timeline-icon"><i class="fa-solid fa-file-medical" aria-hidden="true"></i></span><h3>Share Your Reports</h3><p>Upload reports here or send them on WhatsApp — securely, in one message.</p></div></div>
+        <div class="timeline-item" data-animate="fade-up"><span class="timeline-num">01</span><div class="timeline-content"><span class="timeline-icon"><i class="fa-solid fa-file-medical" aria-hidden="true"></i></span><h3>Share Your Reports</h3><p>Fill the short form at the top of this page and attach your reports in step 2 of the form — or simply send them on WhatsApp.</p></div></div>
         <div class="timeline-item" data-animate="fade-up" data-animate-delay="60"><span class="timeline-num">02</span><div class="timeline-content"><span class="timeline-icon"><i class="fa-solid fa-hospital-user" aria-hidden="true"></i></span><h3>Specialist &amp; Hospital Review</h3><p>Your case is routed to an appropriate specialist and hospital in India.</p></div></div>
         <div class="timeline-item" data-animate="fade-up" data-animate-delay="120"><span class="timeline-num">03</span><div class="timeline-content"><span class="timeline-icon"><i class="fa-solid fa-clipboard-list" aria-hidden="true"></i></span><h3>Receive Your Treatment Plan</h3><p>The specialist's assessment and recommended approach, explained in Bengali.</p></div></div>
         <div class="timeline-item" data-animate="fade-up" data-animate-delay="180"><span class="timeline-num">04</span><div class="timeline-content"><span class="timeline-icon"><i class="fa-solid fa-file-invoice" aria-hidden="true"></i></span><h3>Written Indicative Estimate</h3><p>Know the indicative cost and your hospital/specialist options.</p></div></div>
         <div class="timeline-item" data-animate="fade-up" data-animate-delay="240"><span class="timeline-num">05</span><div class="timeline-content"><span class="timeline-icon"><i class="fa-solid fa-video" aria-hidden="true"></i></span><h3>Doctor Discussion</h3><p>Speak with the specialist or care team before deciding.<sup>*</sup></p></div></div>
-        <div class="timeline-item" data-animate="fade-up" data-animate-delay="300"><span class="timeline-num">06</span><div class="timeline-content"><span class="timeline-icon"><i class="fa-solid fa-passport" aria-hidden="true"></i></span><h3>Visa, Travel &amp; Arrival</h3><p>Visa invitation letter, medical visa guidance, travel and airport pickup.</p></div></div>
+        <div class="timeline-item" data-animate="fade-up" data-animate-delay="300"><span class="timeline-num">06</span><div class="timeline-content"><span class="timeline-icon"><i class="fa-solid fa-passport" aria-hidden="true"></i></span><h3>Visa, Travel &amp; Arrival</h3><p>Visa Invitation Letter (VIL) from the hospital, medical visa guidance, travel and airport pickup.</p></div></div>
+        <div class="timeline-item" data-animate="fade-up" data-animate-delay="360"><span class="timeline-num">07</span><div class="timeline-content"><span class="timeline-icon"><i class="fa-solid fa-bed-pulse" aria-hidden="true"></i></span><h3>Treatment</h3><p>Admission and treatment at the selected hospital, with your care companion coordinating with the medical team on the ground.</p></div></div>
+        <div class="timeline-item" data-animate="fade-up" data-animate-delay="420"><span class="timeline-num">08</span><div class="timeline-content"><span class="timeline-icon"><i class="fa-solid fa-heart-circle-check" aria-hidden="true"></i></span><h3>Post-Operation Care</h3><p>Discharge guidance, follow-up consultations with the treating team and report reviews after you return to Bangladesh.</p></div></div>
       </div>
       <p class="fine-print text-center" data-animate="fade-up"><sup>*</sup>Doctor discussions are arranged where appropriate for the case; all clinical decisions rest with the treating hospital and specialist.</p>
     </div>
@@ -587,16 +624,17 @@
       <div class="v-oncology">
         <div class="section-head text-center" data-animate="fade-up">
           <span class="eyebrow">Cancer Treatment in India</span>
-          <h2 class="section-title">Cancer Treatment Options Available in India</h2>
+          <h2 class="section-title">Cancer Treatment Options Available in India Through Our Hospital Network</h2>
           <p class="section-lead">India has a wide range of specialised cancer-care capabilities, with multidisciplinary teams and advanced treatment options available across established hospitals. Depending on the diagnosis and clinical requirements, treatment may include:</p>
         </div>
-        <div class="row g-3 treatment-grid">
-          <div class="col-md-6 col-lg-4" data-animate="fade-up"><div class="feature-card h-100"><span class="feature-icon"><i class="fa-solid fa-scalpel" aria-hidden="true"></i></span><h3 class="feature-title">Cancer Surgery</h3><p>Surgical treatment for cancers where removal of the tumour or affected tissue is recommended.</p></div></div>
+        <div class="row g-3 treatment-grid justify-content-center">
+          <div class="col-md-6 col-lg-4" data-animate="fade-up"><div class="feature-card h-100"><span class="feature-icon"><i class="fa-solid fa-bed-pulse" aria-hidden="true"></i></span><h3 class="feature-title">Cancer Surgery</h3><p>Surgical treatment for cancers where removal of the tumour or affected tissue is recommended.</p></div></div>
           <div class="col-md-6 col-lg-4" data-animate="fade-up" data-animate-delay="60"><div class="feature-card h-100"><span class="feature-icon"><i class="fa-solid fa-syringe" aria-hidden="true"></i></span><h3 class="feature-title">Chemotherapy</h3><p>Drug-based treatment used for different types and stages of cancer.</p></div></div>
           <div class="col-md-6 col-lg-4" data-animate="fade-up" data-animate-delay="120"><div class="feature-card h-100"><span class="feature-icon"><i class="fa-solid fa-radiation" aria-hidden="true"></i></span><h3 class="feature-title">Radiation Therapy</h3><p>Advanced radiation techniques used to target cancer cells while aiming to protect surrounding healthy tissue.</p></div></div>
           <div class="col-md-6 col-lg-4" data-animate="fade-up" data-animate-delay="180"><div class="feature-card h-100"><span class="feature-icon"><i class="fa-solid fa-shield-virus" aria-hidden="true"></i></span><h3 class="feature-title">Immunotherapy</h3><p>Treatment that works with the body's immune system to help fight certain cancers.</p></div></div>
           <div class="col-md-6 col-lg-4" data-animate="fade-up" data-animate-delay="240"><div class="feature-card h-100"><span class="feature-icon"><i class="fa-solid fa-bullseye" aria-hidden="true"></i></span><h3 class="feature-title">Targeted Therapy</h3><p>Medicines designed to target specific characteristics of cancer cells.</p></div></div>
           <div class="col-md-6 col-lg-4" data-animate="fade-up" data-animate-delay="300"><div class="feature-card h-100"><span class="feature-icon"><i class="fa-solid fa-dna" aria-hidden="true"></i></span><h3 class="feature-title">Bone Marrow / Stem Cell Transplant</h3><p>Specialised treatment for selected blood cancers and other conditions requiring stem-cell transplantation.</p></div></div>
+          <div class="col-md-6 col-lg-4" data-animate="fade-up" data-animate-delay="360"><div class="feature-card h-100"><span class="feature-icon"><i class="fa-solid fa-vial-virus" aria-hidden="true"></i></span><h3 class="feature-title">CAR T-Cell Therapy</h3><p>A cellular immunotherapy that re-engineers the patient's own T-cells, used for selected blood cancers at specialised centres.</p></div></div>
         </div>
         <p class="fine-print text-center" data-animate="fade-up">Treatment options depend on the patient's diagnosis, cancer type, stage, overall health and specialist assessment. Final treatment decisions are made by the treating medical team.</p>
 
@@ -631,7 +669,7 @@
           <div class="pill-row">
             <span class="pill"><i class="fa-solid fa-dna" aria-hidden="true"></i>BMT / Stem Cell Transplant Recommended</span><span class="pill"><i class="fa-solid fa-droplet" aria-hidden="true"></i>Leukaemia</span>
             <span class="pill"><i class="fa-solid fa-droplet" aria-hidden="true"></i>Lymphoma</span><span class="pill"><i class="fa-solid fa-droplet" aria-hidden="true"></i>Multiple Myeloma</span>
-            <span class="pill"><i class="fa-solid fa-droplet" aria-hidden="true"></i>Aplastic Anaemia</span><span class="pill"><i class="fa-solid fa-droplet" aria-hidden="true"></i>Thalassaemia</span>
+            <span class="pill"><i class="fa-solid fa-droplet" aria-hidden="true"></i>Aplastic Anaemia</span><span class="pill"><i class="fa-solid fa-droplet" aria-hidden="true"></i>Thalassaemia</span><span class="pill"><i class="fa-solid fa-vial-virus" aria-hidden="true"></i>CAR T-Cell Therapy</span>
             <span class="pill"><i class="fa-solid fa-user-check" aria-hidden="true"></i>Transplant Opinion Already Received</span><span class="pill"><i class="fa-solid fa-people-arrows" aria-hidden="true"></i>HLA / Donor Evaluation Started</span>
           </div>
         </div>
@@ -706,11 +744,12 @@
               <a class="btn btn-sm btn-outline-cta" href="https://www.globalcarehealth.com/hospitals/india/indraprastha-apollo-hospital" target="_blank" rel="noopener">View Hospital</a>
             </div>
           </article>
-          <article class="hospital-card slider-item h-bmt h-cardiac">
+          <article class="hospital-card slider-item h-oncology h-bmt h-cardiac">
             <div class="hospital-media"><img src="images/hospitals/Fortis-Memorial-Research-Institute-Gurugram-India-gchh7.webp" alt="Fortis Memorial Research Institute, Gurugram" onerror="this.onerror=null;this.src='images/hospital-2.svg'" loading="lazy" width="600" height="375" /></div>
             <div class="hospital-body">
               <h3>Fortis Memorial Research Institute</h3>
               <p class="hospital-city"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Gurugram</p>
+              <p class="hospital-specialties v-oncology">Oncology · Cancer surgery · Radiation</p>
               <p class="hospital-specialties v-bmt">Haematology · Bone marrow transplant</p>
               <p class="hospital-specialties v-cardiac">Cardiac surgery · Cardiology</p>
               <p class="hospital-badges"></p>
@@ -729,11 +768,12 @@
               <a class="btn btn-sm btn-outline-cta" href="https://www.globalcarehealth.com/hospitals/india/max-super-speciality-hospital-saket" target="_blank" rel="noopener">View Hospital</a>
             </div>
           </article>
-          <article class="hospital-card slider-item h-bmt h-cardiac">
+          <article class="hospital-card slider-item h-oncology h-bmt h-cardiac">
             <div class="hospital-media"><img src="images/hospitals/Medanta-Hospital-Gurugram-India-gchh85.webp" alt="Medanta – The Medicity, Gurugram" onerror="this.onerror=null;this.src='images/hospital-4.svg'" loading="lazy" width="600" height="375" /></div>
             <div class="hospital-body">
               <h3>Medanta – The Medicity</h3>
               <p class="hospital-city"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Gurugram</p>
+              <p class="hospital-specialties v-oncology">Oncology · Cancer surgery · Radiation</p>
               <p class="hospital-specialties v-bmt">Haematology · Bone marrow transplant</p>
               <p class="hospital-specialties v-cardiac">Heart surgery · Cardiology</p>
               <p class="hospital-badges"></p>
@@ -752,34 +792,38 @@
               <a class="btn btn-sm btn-outline-cta" href="https://www.globalcarehealth.com/hospitals/india/manipal-hospital-old-airport-road" target="_blank" rel="noopener">View Hospital</a>
             </div>
           </article>
-          <article class="hospital-card slider-item h-oncology h-cardiac">
+          <article class="hospital-card slider-item h-oncology h-bmt h-cardiac">
             <div class="hospital-media"><img src="images/hospitals/Artemis-Hospital-Gurugram-India-gchh81.webp" alt="Artemis Hospital, Gurugram" onerror="this.onerror=null;this.src='images/hospital-6.svg'" loading="lazy" width="600" height="375" /></div>
             <div class="hospital-body">
               <h3>Artemis Hospital</h3>
               <p class="hospital-city"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Gurugram</p>
               <p class="hospital-specialties v-oncology">Oncology · Cancer surgery</p>
+              <p class="hospital-specialties v-bmt">Haematology · Bone marrow transplant</p>
               <p class="hospital-specialties v-cardiac">Cardiac surgery · Cardiology</p>
               <!-- Accreditation as listed on the GlobalCare website hospital page -->
               <p class="hospital-badges"><span>JCI</span><span>NABH</span></p>
               <a class="btn btn-sm btn-outline-cta" href="https://www.globalcarehealth.com/hospitals/india/artemis-hospital" target="_blank" rel="noopener">View Hospital</a>
             </div>
           </article>
-          <article class="hospital-card slider-item h-bmt">
+          <article class="hospital-card slider-item h-oncology h-bmt h-cardiac">
             <div class="hospital-media"><img src="images/hospitals/Amrita-Hospital-Faridabad-India-gchh50.webp" alt="Amrita Hospital, Faridabad" onerror="this.onerror=null;this.src='images/hospital-7.svg'" loading="lazy" width="600" height="375" /></div>
             <div class="hospital-body">
               <h3>Amrita Hospital</h3>
               <p class="hospital-city"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Faridabad</p>
+              <p class="hospital-specialties v-oncology">Oncology · Cancer surgery</p>
               <p class="hospital-specialties v-bmt">Haematology · Transplant programmes</p>
+              <p class="hospital-specialties v-cardiac">Cardiac surgery · Cardiology</p>
               <p class="hospital-badges"></p>
               <a class="btn btn-sm btn-outline-cta" href="https://www.globalcarehealth.com/hospitals/india/amrita-hospital" target="_blank" rel="noopener">View Hospital</a>
             </div>
           </article>
-          <article class="hospital-card slider-item h-oncology h-cardiac">
+          <article class="hospital-card slider-item h-oncology h-bmt h-cardiac">
             <div class="hospital-media"><img src="images/hospitals/Marengo-Asia-Gurugram-India-gchh82.webp" alt="Marengo Asia Hospitals, Gurugram" onerror="this.onerror=null;this.src='images/hospital-8.svg'" loading="lazy" width="600" height="375" /></div>
             <div class="hospital-body">
               <h3>Marengo Asia Hospitals</h3>
               <p class="hospital-city"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Gurugram</p>
               <p class="hospital-specialties v-oncology">Oncology · Cancer care</p>
+              <p class="hospital-specialties v-bmt">Haematology · Bone marrow transplant</p>
               <p class="hospital-specialties v-cardiac">Cardiac care</p>
               <p class="hospital-badges"></p>
               <a class="btn btn-sm btn-outline-cta" href="https://www.globalcarehealth.com/hospitals/india/marengo-asia-gurugram" target="_blank" rel="noopener">View Hospital</a>
@@ -790,7 +834,7 @@
         <button class="slider-btn slider-next" type="button" aria-label="Next hospitals"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
         <div class="slider-dots" aria-hidden="true"></div>
       </div>
-      <p class="fine-print text-center" data-animate="fade-up">Hospital and specialist are proposed after your reports are reviewed. Accreditation details are shown only where currently verified.</p>
+      <p class="hospital-more text-center" data-animate="fade-up">These are some of the hospitals in our care network. <a href="https://www.globalcarehealth.com/hospitals" target="_blank" rel="noopener">See more hospitals on our website</a> — or your care coordinator will share the options best suited to your case after reviewing your reports.</p>
     </div>
   </section>
 
@@ -875,27 +919,6 @@
     </div>
   </section>
 
-  <!-- ============================================================
-       SUPPORT BEYOND THE HOSPITAL (medical visa + travel)
-       ============================================================ -->
-  <section class="section" id="travel-support">
-    <div class="container">
-      <div class="section-head text-center" data-animate="fade-up">
-        <span class="eyebrow">Medical Visa &amp; Travel</span>
-        <h2 class="section-title">Support Beyond the Hospital</h2>
-        <p class="section-lead">Once you decide to proceed with treatment in India, GlobalCare can help coordinate the practical aspects of your journey.</p>
-      </div>
-      <div class="row g-3">
-        <div class="col-md-6 col-lg-4" data-animate="fade-up"><div class="assist-card h-100"><span class="assist-icon"><i class="fa-solid fa-passport" aria-hidden="true"></i></span><h3>Medical Visa Guidance</h3><p>Understand the documentation and process required for your medical journey, including the hospital visa invitation letter (VIL).</p></div></div>
-        <div class="col-md-6 col-lg-4" data-animate="fade-up" data-animate-delay="60"><div class="assist-card h-100"><span class="assist-icon"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i></span><h3>Appointments</h3><p>Coordinate appointments with the selected hospital and specialist.</p></div></div>
-        <div class="col-md-6 col-lg-4" data-animate="fade-up" data-animate-delay="120"><div class="assist-card h-100"><span class="assist-icon"><i class="fa-solid fa-plane-departure" aria-hidden="true"></i></span><h3>Travel Assistance</h3><p>Support with travel planning and local arrangements.</p></div></div>
-        <div class="col-md-6 col-lg-4" data-animate="fade-up" data-animate-delay="180"><div class="assist-card h-100"><span class="assist-icon"><i class="fa-solid fa-hotel" aria-hidden="true"></i></span><h3>Accommodation</h3><p>Assistance with suitable accommodation options based on your requirements.</p></div></div>
-        <div class="col-md-6 col-lg-4" data-animate="fade-up" data-animate-delay="240"><div class="assist-card h-100"><span class="assist-icon"><i class="fa-solid fa-van-shuttle" aria-hidden="true"></i></span><h3>Airport &amp; Local Support</h3><p>On-ground coordination where applicable.</p></div></div>
-        <div class="col-md-6 col-lg-4" data-animate="fade-up" data-animate-delay="300"><div class="assist-card h-100"><span class="assist-icon"><i class="fa-solid fa-hospital-user" aria-hidden="true"></i></span><h3>Hospital Admission</h3><p>Support through the admission and treatment process.</p></div></div>
-      </div>
-      <p class="fine-print text-center mt-4" data-animate="fade-up">Visa approval and entry into India are subject to applicable government rules and immigration requirements.</p>
-    </div>
-  </section>
 
   <!-- ============================================================
        SECTION 9 — FAQ (cost first; per-specialty questions; short answers)
@@ -1092,6 +1115,12 @@
         <div class="col-lg-4">
           <a class="footer-brand d-flex align-items-center" href="#hero"><img src="images/logo.png" alt="GlobalCare Health" class="brand-logo brand-logo--footer" width="911" height="274"></a>
           <p class="footer-desc">GlobalCare Health coordinates cancer treatment, bone marrow transplant and heart surgery in India for patients and families from Bangladesh — from report review and specialist matching to visa, travel and arrival support.</p>
+          <div class="footer-social">
+            <a href="https://www.facebook.com/GlobalcareHealthIndia" target="_blank" rel="noopener" aria-label="GlobalCare Health on Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+            <a href="https://www.instagram.com/globalcare_health" target="_blank" rel="noopener" aria-label="GlobalCare Health on Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+            <a href="https://www.linkedin.com/company/globalcarehealth/" target="_blank" rel="noopener" aria-label="GlobalCare Health on LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
+            <a class="js-wa" href="https://wa.me/919211312666" target="_blank" rel="noopener" aria-label="GlobalCare Health on WhatsApp"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
+          </div>
         </div>
         <div class="col-6 col-lg-2">
           <h4 class="footer-heading">Treatments</h4>

@@ -918,6 +918,28 @@ font[style] { background: transparent !important; box-shadow: none !important; }
 .bd-bullets li { margin-bottom: 12px; }
 .final-cta-small { color: rgba(255,255,255,.7); font-size: .82rem; margin: 22px auto 0; max-width: 560px; }
 
+/* Hero chips: keep the icon centred in its circle.
+   (".hero-tile span {display:block}" was overriding the flex centring on the icon span.) */
+.hero-tile .hero-tile-ico { display: inline-flex; align-items: center; justify-content: center; line-height: 1; }
+.hero-tile .hero-tile-ico i { display: block; line-height: 1; }
+.hero-tile { align-items: center; }
+
+/* Hospitals: "more hospitals" note */
+.hospital-more { max-width: 820px; margin: 26px auto 0; font-size: .95rem; color: var(--gc-body); line-height: 1.6; }
+.hospital-more a { color: var(--gchDarkBlue); font-weight: 700; text-decoration: underline; }
+
+/* Patient photo story (under Why GlobalCare) */
+.photo-story { background: #fff; border: 1px solid var(--gc-line); border-radius: var(--gc-radius-lg); overflow: hidden; box-shadow: var(--gc-shadow); }
+.photo-story-img { width: 100%; height: 100%; min-height: 320px; object-fit: cover; display: block; }
+.photo-story-body { padding: 36px 40px; }
+.photo-story-quote { font-size: 1.12rem; line-height: 1.7; color: var(--gc-ink); font-style: italic; margin: 10px 0 20px; }
+.photo-story-quote-ico { color: var(--gc-primary-light); font-size: 1.8rem; opacity: .6; }
+.photo-story-name { font-family: var(--gc-font-head); font-weight: 800; color: var(--gc-secondary); font-size: 1.05rem; }
+.photo-story-meta { font-size: .9rem; color: var(--gc-muted); }
+.photo-story-journey { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 22px; padding: 0; list-style: none; }
+.photo-story-journey li { font-family: var(--gc-font-head); font-weight: 600; font-size: .78rem; color: var(--gchDarkBlue); background: var(--gc-bg-soft); border-radius: 999px; padding: 5px 12px; }
+@media (max-width: 767.98px) { .photo-story-body { padding: 24px 22px; } .photo-story-img { min-height: 240px; } }
+
 /* Honeypot: off-screen, not display:none (some bots skip hidden inputs) */
 .hp-field { position: absolute; left: -9999px; top: -9999px; width: 1px; height: 1px; overflow: hidden; opacity: 0; }
 
