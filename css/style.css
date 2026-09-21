@@ -989,3 +989,15 @@ font[style] { background: transparent !important; box-shadow: none !important; }
   .trust-strip { padding: 28px 0; }
   .trust-item { flex-direction: column; gap: 10px; }
 }
+
+/* Tighter gaps where two light sections meet (client feedback) */
+#why-globalcare { padding-bottom: 40px; }
+#who-for { padding-top: 48px; }
+#cost { padding-bottom: 44px; }
+#bangladesh-support { padding-top: 48px; }
+@media (max-width: 767.98px) {
+  #why-globalcare { padding-bottom: 28px; }
+  #who-for { padding-top: 36px; }
+  #cost { padding-bottom: 32px; }
+  #bangladesh-support { padding-top: 36px; }
+}
