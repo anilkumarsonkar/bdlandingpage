@@ -65,7 +65,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
   <link href="vendor/fontawesome/css/all.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css?v=20260921d" />
+  <link rel="stylesheet" href="css/style.css?v=20260921f" />
 
   <!-- JSON-LD: Organization -->
   <script type="application/ld+json">
@@ -438,7 +438,7 @@
 
   <!-- ============================================================
        PATIENT PHOTO SLIDER (under Why GlobalCare) — real patients and families, shared with consent.
-       Fixed-height filmstrip: each photo keeps its natural width (no cropping of people).
+       Uniform square cards: the whole photo is shown (nobody cropped) over a blurred copy of itself.
        To add a photo: save it in images/patients/ and copy one <figure class="photo-card slider-item">.
        ============================================================ -->
   <section class="section section-alt" id="patient-photo-story">
@@ -451,13 +451,13 @@
       <div class="hospital-slider photo-slider" id="photoSlider" data-animate="fade-up" data-autoplay="4000">
         <button class="slider-btn slider-prev" type="button" aria-label="Previous photos"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
         <div class="slider-track" tabindex="0" aria-label="Patient photos, scroll horizontally">
-          <figure class="photo-card slider-item"><img src="images/patients/story-4.jpg" alt="GlobalCare care companion receiving a mother and her son at Delhi airport" loading="lazy" width="1000" height="750" /><figcaption>Airport pickup by our care companion</figcaption></figure>
-          <figure class="photo-card slider-item"><img src="images/patients/story-2.jpg" alt="Patient in a wheelchair with family and a GlobalCare team member at the airport" loading="lazy" width="750" height="1000" /><figcaption>Wheelchair and arrival assistance</figcaption></figure>
-          <figure class="photo-card slider-item"><img src="images/patients/story-7.jpg" alt="Patient with doctors and the hospital care team celebrating with a cake" loading="lazy" width="651" height="476" /><figcaption>Celebrating with a patient and the hospital care team</figcaption></figure>
-          <figure class="photo-card slider-item"><img src="images/patients/story-6.jpg" alt="A young patient and his father with a GlobalCare team member" loading="lazy" width="750" height="1000" /><figcaption>With a young patient and his father</figcaption></figure>
-          <figure class="photo-card slider-item"><img src="images/patients/story-1.jpg" alt="Patient and family seated at the GlobalCare office" loading="lazy" width="790" height="587" /><figcaption>A patient and family at our office</figcaption></figure>
-          <figure class="photo-card slider-item"><img src="images/patients/story-5.jpg" alt="Patient giving a thumbs up next to a GlobalCare care companion after treatment" loading="lazy" width="342" height="471" /><figcaption>Visiting a patient after treatment</figcaption></figure>
-          <figure class="photo-card slider-item"><img src="images/patients/story-3.jpg" alt="GlobalCare team counselling patients at a consultation desk" loading="lazy" width="750" height="1000" /><figcaption>Counselling patients and families in person</figcaption></figure>
+          <figure class="photo-card slider-item"><div class="photo-frame"><img class="photo-bg" src="images/patients/story-4.jpg" alt="" aria-hidden="true" loading="lazy" /><img src="images/patients/story-4.jpg" alt="GlobalCare care companion receiving a mother and her son at Delhi airport" loading="lazy" width="1000" height="750" /></div><figcaption>Airport pickup by our care companion</figcaption></figure>
+          <figure class="photo-card slider-item"><div class="photo-frame"><img class="photo-bg" src="images/patients/story-2.jpg" alt="" aria-hidden="true" loading="lazy" /><img src="images/patients/story-2.jpg" alt="Patient in a wheelchair with family and a GlobalCare team member at the airport" loading="lazy" width="750" height="1000" /></div><figcaption>Wheelchair and arrival assistance</figcaption></figure>
+          <figure class="photo-card slider-item"><div class="photo-frame"><img class="photo-bg" src="images/patients/story-7.jpg" alt="" aria-hidden="true" loading="lazy" /><img src="images/patients/story-7.jpg" alt="Patient with doctors and the hospital care team celebrating with a cake" loading="lazy" width="651" height="476" /></div><figcaption>Celebrating with a patient and the hospital care team</figcaption></figure>
+          <figure class="photo-card slider-item"><div class="photo-frame"><img class="photo-bg" src="images/patients/story-6.jpg" alt="" aria-hidden="true" loading="lazy" /><img src="images/patients/story-6.jpg" alt="A young patient and his father with a GlobalCare team member" loading="lazy" width="750" height="1000" /></div><figcaption>With a young patient and his father</figcaption></figure>
+          <figure class="photo-card slider-item"><div class="photo-frame"><img class="photo-bg" src="images/patients/story-1.jpg" alt="" aria-hidden="true" loading="lazy" /><img src="images/patients/story-1.jpg" alt="Patient and family seated at the GlobalCare office" loading="lazy" width="790" height="587" /></div><figcaption>A patient and family at our office</figcaption></figure>
+          <figure class="photo-card slider-item"><div class="photo-frame"><img class="photo-bg" src="images/patients/story-5.jpg" alt="" aria-hidden="true" loading="lazy" /><img src="images/patients/story-5.jpg" alt="Patient giving a thumbs up next to a GlobalCare care companion after treatment" loading="lazy" width="342" height="471" /></div><figcaption>Visiting a patient after treatment</figcaption></figure>
+          <figure class="photo-card slider-item"><div class="photo-frame"><img class="photo-bg" src="images/patients/story-3.jpg" alt="" aria-hidden="true" loading="lazy" /><img src="images/patients/story-3.jpg" alt="GlobalCare team counselling patients at a consultation desk" loading="lazy" width="750" height="1000" /></div><figcaption>Counselling patients and families in person</figcaption></figure>
         </div>
         <button class="slider-btn slider-next" type="button" aria-label="Next photos"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
         <div class="slider-dots" aria-hidden="true"></div>
