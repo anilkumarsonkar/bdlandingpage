@@ -990,6 +990,17 @@ font[style] { background: transparent !important; box-shadow: none !important; }
   .trust-item { flex-direction: column; gap: 10px; }
 }
 
+/* Patient photo filmstrip slider: fixed height, natural widths (nobody gets cropped out).
+   display:table + table-caption keeps each caption exactly as wide as its photo. */
+.photo-slider .slider-track { align-items: flex-start; }
+.photo-slider .slider-item.photo-card { flex: 0 0 auto; display: table; margin: 0; border-radius: var(--gc-radius); overflow: hidden; box-shadow: var(--gc-shadow-sm); background: #fff; transition: var(--gc-transition); }
+.photo-slider .photo-card:hover { box-shadow: var(--gc-shadow); transform: translateY(-4px); }
+.photo-slider .photo-card img { display: block; height: 340px; width: auto; max-width: none; border-radius: var(--gc-radius) var(--gc-radius) 0 0; }
+.photo-slider .photo-card figcaption { display: table-caption; caption-side: bottom; background: #fff; border: 1px solid var(--gc-line); border-top: 0; border-radius: 0 0 var(--gc-radius) var(--gc-radius); padding: 10px 14px 12px; font-family: var(--gc-font-head); font-weight: 600; font-size: .86rem; color: var(--gc-secondary); line-height: 1.35; }
+.photo-slider .slider-btn { top: 170px; }
+.photo-slider .slider-dots { display: none; }
+@media (max-width: 767.98px) { .photo-slider .photo-card img { height: 260px; } .photo-slider .slider-btn { top: 130px; } }
+
 /* Tighter gaps where two light sections meet (client feedback) */
 #why-globalcare { padding-bottom: 40px; }
 #who-for { padding-top: 48px; }

@@ -292,11 +292,22 @@
         if (prev) { prev.disabled = track_.scrollLeft <= 2; prev.hidden = noScroll; }
         if (next) { next.disabled = track_.scrollLeft >= maxScroll() - 2; next.hidden = noScroll; }
       };
+      // Move to the next / previous item edge (works for equal and variable-width items)
       var go = function (dir) {
-        var target = track_.scrollLeft + dir * stepWidth();
-        if (dir > 0 && track_.scrollLeft >= maxScroll() - 2) { target = 0; }
-        if (dir < 0 && track_.scrollLeft <= 2) { target = maxScroll(); }
-        track_.scrollTo({ left: target, behavior: 'smooth' });
+        var items = visibleItems();
+        var cur = track_.scrollLeft;
+        var base = items.length ? items[0].offsetLeft : 0;
+        var target = null;
+        if (dir > 0) {
+          if (cur >= maxScroll() - 2) { target = 0; }
+          else { for (var i = 0; i < items.length; i++) { var l = items[i].offsetLeft - base; if (l > cur + 2) { target = l; break; } } }
+          if (target === null) { target = maxScroll(); }
+        } else {
+          if (cur <= 2) { target = maxScroll(); }
+          else { for (var j = items.length - 1; j >= 0; j--) { var l2 = items[j].offsetLeft - base; if (l2 < cur - 2) { target = l2; break; } } }
+          if (target === null) { target = 0; }
+        }
+        track_.scrollTo({ left: Math.min(target, maxScroll()), behavior: 'smooth' });
       };
       var interval = parseInt(slider.getAttribute('data-autoplay'), 10) || 0;
       var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
