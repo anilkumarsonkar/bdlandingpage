@@ -941,7 +941,7 @@ font[style] { background: transparent !important; box-shadow: none !important; }
 @media (max-width: 767.98px) { .photo-story-body { padding: 24px 22px; } .photo-story-img { min-height: 240px; } }
 
 /* HCG card: no photo supplied yet — branded placeholder in the same 16:10 box */
-.hospital-media--placeholder { display: flex; align-items: center; justify-content: center; background: var(--gc-btn-gradient); }
+.slider-item .hospital-media.hospital-media--placeholder { display: flex; align-items: center; justify-content: center; background: var(--gc-btn-gradient); }
 .hospital-placeholder { display: flex; flex-direction: column; align-items: center; gap: 8px; color: #fff; }
 .hospital-placeholder i { font-size: 2.4rem; opacity: .9; }
 .hospital-placeholder span { font-family: var(--gc-font-head); font-weight: 800; font-size: 1.6rem; letter-spacing: .08em; }
