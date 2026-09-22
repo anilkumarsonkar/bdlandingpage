@@ -940,6 +940,43 @@ font[style] { background: transparent !important; box-shadow: none !important; }
 .photo-story-journey li { font-family: var(--gc-font-head); font-weight: 600; font-size: .78rem; color: var(--gchDarkBlue); background: var(--gc-bg-soft); border-radius: 999px; padding: 5px 12px; }
 @media (max-width: 767.98px) { .photo-story-body { padding: 24px 22px; } .photo-story-img { min-height: 240px; } }
 
+/* HCG card: no photo supplied yet — branded placeholder in the same 16:10 box */
+.hospital-media--placeholder { display: flex; align-items: center; justify-content: center; background: var(--gc-btn-gradient); }
+.hospital-placeholder { display: flex; flex-direction: column; align-items: center; gap: 8px; color: #fff; }
+.hospital-placeholder i { font-size: 2.4rem; opacity: .9; }
+.hospital-placeholder span { font-family: var(--gc-font-head); font-weight: 800; font-size: 1.6rem; letter-spacing: .08em; }
+
+/* Mobile alignment (client feedback) */
+.hero-banner .hero-content { padding-left: calc(var(--bs-gutter-x, 1.5rem) * .5); padding-right: calc(var(--bs-gutter-x, 1.5rem) * .5); }
+@media (max-width: 767.98px) {
+  .hero-banner .hero-content { padding-top: 16px; }
+  .hero-banner .route-badge { font-size: .8rem; padding: 6px 12px; }
+  .hero-banner .hero-title { font-size: 1.7rem; }
+  .hero-banner .hero-subtitle { font-size: .96rem; }
+  .hero-cta { flex-direction: column; align-items: stretch; gap: 10px; }
+  .hero-cta .btn { width: 100%; }
+  .hero-note { font-size: .86rem; margin-top: 10px; }
+  .hero-form-col { margin-top: 8px; }
+  /* Hospital name strip: one swipeable row instead of 8 wrapped lines */
+  .hospital-strip .container { flex-wrap: nowrap; }
+  .hospital-strip-label { flex: 0 0 auto; }
+  .hospital-strip ul { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; padding-bottom: 2px; }
+  .hospital-strip ul::-webkit-scrollbar { display: none; }
+  /* Navy contact strip: one item per line, centred */
+  .appointment-strip a { width: 100%; justify-content: center; }
+  /* Section headings / leads: keep clear of the floating buttons */
+  .section-head { padding: 0 8px; }
+  /* Sliders: arrows sit just inside the edge on phones */
+  .slider-prev { left: 2px; } .slider-next { right: 2px; }
+  .photo-slider .slider-btn, .testimonial-slider .slider-btn { width: 36px; height: 36px; }
+  /* Cost card: icon + text rows read cleanly */
+  .cost-card .cost-lines { text-align: left; }
+  .cost-card .eyebrow, .cost-card .section-title, .cost-card .section-lead { text-align: center; }
+  /* Footer: link columns and contact block breathe */
+  .site-footer .footer-heading { margin-top: 8px; }
+  .site-footer .footer-contact li { word-break: break-word; }
+}
+
 /* Form step validation message */
 .form-error { margin: 10px 0 0; font-size: .84rem; font-weight: 600; color: #c92629; }
 .hero-form-card .form-select.is-invalid, .hero-form-card .form-control.is-invalid { border-color: #c92629; background-color: #fff5f5; }
