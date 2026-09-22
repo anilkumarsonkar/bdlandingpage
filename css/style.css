@@ -163,7 +163,7 @@ a { text-decoration: none; color: var(--gc-primary); }
 .brand-logo { height: 46px; width: auto; display: block; }
 @media (max-width: 575.98px) { .brand-logo { height: 40px; } }
 /* Footer logo sits on a dark background — give it a clean white plate */
-.brand-logo--footer { height: 52px; background: #fff; padding: 8px 12px; border-radius: 10px; }
+.brand-logo--footer { height: 52px; }
 
 .navbar-nav .nav-link {
   font-family: var(--gc-font-head); font-weight: 600; color: var(--gc-secondary);
