@@ -940,6 +940,10 @@ font[style] { background: transparent !important; box-shadow: none !important; }
 .photo-story-journey li { font-family: var(--gc-font-head); font-weight: 600; font-size: .78rem; color: var(--gchDarkBlue); background: var(--gc-bg-soft); border-radius: 999px; padding: 5px 12px; }
 @media (max-width: 767.98px) { .photo-story-body { padding: 24px 22px; } .photo-story-img { min-height: 240px; } }
 
+/* Form step validation message */
+.form-error { margin: 10px 0 0; font-size: .84rem; font-weight: 600; color: #c92629; }
+.hero-form-card .form-select.is-invalid, .hero-form-card .form-control.is-invalid { border-color: #c92629; background-color: #fff5f5; }
+
 /* Honeypot: off-screen, not display:none (some bots skip hidden inputs) */
 .hp-field { position: absolute; left: -9999px; top: -9999px; width: 1px; height: 1px; overflow: hidden; opacity: 0; }
 

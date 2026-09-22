@@ -65,7 +65,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
   <link href="vendor/fontawesome/css/all.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css?v=20260922b" />
+  <link rel="stylesheet" href="css/style.css?v=20260922c" />
 
   <!-- JSON-LD: Organization -->
   <script type="application/ld+json">
@@ -267,7 +267,7 @@
                 </div>
 
                 <!-- Diagnosis / procedure — one select per specialty (inactive ones are disabled by script.js) -->
-                <div class="mb-2 v-oncology">
+                <div class="mb-2 dx-field" data-dx="oncology">
                   <label for="dxOncology" class="form-label">Cancer type / diagnosis area *</label>
                   <select class="form-select" id="dxOncology" name="diagnosis" required>
                     <option value="" selected disabled>Select one</option>
@@ -277,7 +277,7 @@
                   </select>
                   <div class="invalid-feedback">Please select a cancer type.</div>
                 </div>
-                <div class="mb-2 v-bmt">
+                <div class="mb-2 dx-field" data-dx="bmt">
                   <label for="dxBmt" class="form-label">Diagnosis / BMT situation *</label>
                   <select class="form-select" id="dxBmt" name="diagnosis" required>
                     <option value="" selected disabled>Select one</option>
@@ -287,7 +287,7 @@
                   </select>
                   <div class="invalid-feedback">Please select the diagnosis or BMT situation.</div>
                 </div>
-                <div class="mb-2 v-cardiac">
+                <div class="mb-2 dx-field" data-dx="cardiac">
                   <label for="dxCardiac" class="form-label">Recommended procedure / condition *</label>
                   <select class="form-select" id="dxCardiac" name="diagnosis" required>
                     <option value="" selected disabled>Select one</option>
@@ -328,6 +328,7 @@
                   <div class="invalid-feedback">Please select one.</div>
                 </div>
                 <button type="button" class="btn btn-primary-cta w-100" id="formNext">Continue <i class="fa-solid fa-arrow-right ms-2" aria-hidden="true"></i></button>
+                <p class="form-error" id="formError" hidden><i class="fa-solid fa-circle-exclamation me-1" aria-hidden="true"></i>Please complete the highlighted fields.</p>
               </fieldset>
 
               <!-- ===== STEP 2: contact + reports ===== -->
@@ -1175,6 +1176,6 @@
 
   <!-- Scripts -->
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="js/script.js?v=20260921d"></script>
+  <script src="js/script.js?v=20260922c"></script>
 </body>
 </html>

@@ -94,11 +94,12 @@
 
     // Only the active specialty's diagnosis <select> is enabled (hidden ones must not block validation)
     var applyDiagnosisField = function (sp) {
-      ['oncology', 'bmt', 'cardiac'].forEach(function (k) {
-        document.querySelectorAll('#caseForm .v-' + k).forEach(function (wrap) {
-          var active = (k === sp);
-          wrap.style.display = active ? '' : 'none';
-          wrap.querySelectorAll('select, input').forEach(function (f) { f.disabled = !active; });
+      document.querySelectorAll('#caseForm .dx-field').forEach(function (wrap) {
+        var active = (wrap.getAttribute('data-dx') === sp);
+        wrap.hidden = !active;
+        wrap.querySelectorAll('select, input').forEach(function (f) {
+          f.disabled = !active;
+          if (!active) { f.classList.remove('is-invalid'); }
         });
       });
     };
@@ -190,14 +191,20 @@
       var backBtn = document.getElementById('formBack');
       var thanks = document.getElementById('formThanks');
 
+      var errorMsg = document.getElementById('formError');
       var validateStep = function (step) {
         var ok = true;
         step.querySelectorAll('input, select, textarea').forEach(function (f) {
-          if (f.disabled) { return; }
+          if (f.disabled || f.closest('[hidden]')) { return; }
           var valid = f.checkValidity();
           f.classList.toggle('is-invalid', !valid);
-          if (!valid && ok) { ok = false; f.focus(); }
+          if (!valid && ok) {
+            ok = false;
+            try { f.scrollIntoView({ behavior: 'smooth', block: 'center' }); } catch (e) {}
+            f.focus({ preventScroll: true });
+          }
         });
+        if (errorMsg) { errorMsg.hidden = ok; }
         return ok;
       };
       var showStep = function (n) {
