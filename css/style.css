@@ -1012,6 +1012,17 @@ font[style] { background: transparent !important; box-shadow: none !important; }
   .faq-accordion .accordion-body { padding: 4px 16px 18px; font-size: .96rem; line-height: 1.65; }
 }
 
+/* Mobile: consistent 20px page edge, and two-column intro blocks read as centred sections */
+@media (max-width: 575.98px) {
+  .container { --bs-gutter-x: 2.5rem; }             /* 20px left/right instead of 12px */
+  #know-before .col-lg-5 { text-align: center; }
+  #know-before .col-lg-5 .know-highlight { justify-content: center; }
+  #know-before .know-closing { text-align: center; }
+  .section-head { padding: 0; }
+  .who-note, .hospital-more, .reports-box { margin-left: 0; margin-right: 0; }
+  .appointment-strip { margin-left: 0; margin-right: 0; }
+}
+
 /* Form step validation message */
 .form-error { margin: 10px 0 0; font-size: .84rem; font-weight: 600; color: #c92629; }
 .hero-form-card .form-select.is-invalid, .hero-form-card .form-control.is-invalid { border-color: #c92629; background-color: #fff5f5; }
