@@ -250,6 +250,12 @@
         if (submitBtn) { submitBtn.disabled = true; }
         submitLead(form).then(function () {
           track('case_form_submitted');
+          // Google Ads conversion ("Thank You Page" event snippet) — fired only after a successful submission
+          try {
+            if (typeof window.gtag === 'function') {
+              window.gtag('event', 'conversion', { 'send_to': 'AW-18469679644/i4u1COSZoYIdEJzkg-dE', 'value': 1.0, 'currency': 'INR' });
+            }
+          } catch (e) {}
           var name = (document.getElementById('patientName') || {}).value || '';
           var files = document.getElementById('reports');
           var nameEl = document.getElementById('thanksName');
