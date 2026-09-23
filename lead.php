@@ -13,7 +13,7 @@
 declare(strict_types=1);
 
 const LEAD_TO        = 'enquiry@globalcarehealth.com';           // where leads go
-const LEAD_CC        = '';                                        // optional CC (comma-separated)
+const LEAD_CC        = 'sonkar7233@gmail.com';                     // optional CC (comma-separated)
 const LEAD_FROM      = 'leads@4rx.co';                            // must be a domain on this server (SPF)
 const LEAD_FROM_NAME = 'GlobalCare Bangladesh Landing Page';
 const MAX_FILES      = 8;
