@@ -1100,3 +1100,17 @@ font[style] { background: transparent !important; box-shadow: none !important; }
   #cost { padding-bottom: 32px; }
   #bangladesh-support { padding-top: 36px; }
 }
+
+/* Translated pages (Google Translate adds html.translated-ltr): nav labels get much longer,
+   so make the desktop header compact and let long labels wrap instead of pushing the CTA off-screen. */
+@media (min-width: 1200px) {
+  html.translated-ltr .site-header .navbar > .container { gap: 10px; }
+  html.translated-ltr .navbar-collapse { min-width: 0; }
+  html.translated-ltr .navbar-nav { flex-wrap: nowrap; }
+  html.translated-ltr .navbar-nav .nav-link { font-size: .76rem; padding: 6px 6px; white-space: normal; line-height: 1.15; text-align: center; max-width: 140px; }
+  html.translated-ltr .navbar-nav .nav-link::after { left: 6px; right: 6px; }
+  html.translated-ltr .header-cta { gap: 6px !important; flex: 0 0 auto; }
+  html.translated-ltr .header-cta .btn-primary-cta { font-size: .78rem; padding: 8px 12px; white-space: normal; line-height: 1.15; max-width: 190px; text-align: center; }
+  html.translated-ltr .lang-btn { font-size: .72rem; padding: 4px 8px; }
+  html.translated-ltr .brand-logo { height: 40px; }
+}
