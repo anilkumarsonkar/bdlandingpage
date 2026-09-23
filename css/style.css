@@ -160,7 +160,8 @@ a { text-decoration: none; color: var(--gc-primary); }
 .brand-accent { color: var(--gc-primary); }
 
 /* Brand logo image (replaces icon + text mark) */
-.brand-logo { height: 46px; width: auto; display: block; }
+.brand-logo { height: 46px; width: auto; max-width: none; display: block; flex: 0 0 auto; }
+.site-header .navbar-brand, .footer-brand { flex: 0 0 auto; min-width: max-content; }
 @media (max-width: 575.98px) { .brand-logo { height: 40px; } }
 /* Footer logo sits on a dark background — give it a clean white plate */
 .brand-logo--footer { height: 52px; background: #fff; padding: 8px 12px; border-radius: 10px; }
